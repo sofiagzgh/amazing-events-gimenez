@@ -25,13 +25,18 @@ body {
 }
 
 main {
-    padding: 6rem 0 5rem 0;
+    padding: 5.6rem 0 5rem 0;
 }
 
 /* HEADER */
+header nav {
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
 .navbar-brand img{
     height: 4rem;
+    filter: drop-shadow(5px 5px 5px #000);
 }
+
 /* MAIN */
 .banner {
     background-color: var(--primary-bg-color);
@@ -84,6 +89,38 @@ main {
     padding: 0.5rem 1rem;
 }
 
+.category .search input {
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+.search button {
+    margin-left: 0;
+    padding-left: 0;
+    width: 3rem;
+    border-radius: 0 50px 50px 0;
+}
+
+.search button svg {
+    position: relative;
+    bottom: 3px;
+}
+
+/* Events */
+.cards-container {
+    margin: 3rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
 /* FOOTER */
 footer {
     position: absolute;
