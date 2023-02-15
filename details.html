@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Contact - Amazing Events</title>
+    <title>Details - Amazing Events</title>
 </head>
 
 <body>
@@ -29,8 +29,8 @@
                         <a class="nav-link" href="index.html">Home</a>
                         <a class="nav-link" href="upcoming-events.html">Upcoming Events</a>
                         <a class="nav-link" href="past-events.html">Past Events</a>
-                        <a class="nav-link active flex-grow-1" aria-current="page" href="#">Contact</a>
-                        <a class="nav-link" href="stats.html">Stats</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="#">Stats</a>
                     </div>
                 </div>
             </div>
@@ -41,30 +41,52 @@
         <section>
 
             <div class="banner">
-                <a href="past-events.html"><i class="arrow left"></i></a>
-                <h2>Contact</h2>
-                <a href="stats.html"><i class="arrow right"></i></a>
+                <h2>Details</h2>
             </div>
 
-            <div class="container contact-container">
-                <form class="row d-flex justify-content-center g-3">
-                    <div class="col-md-5">
-                        <label for="inputName4" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="inputName4" placeholder="First and last name">
+            <div class="container details-container d-flex justify-content-center text-center">
+                <div class="card mb-3 col-9">
+                    <div class="card-header">
+                        Event Details
                     </div>
-                    <div class="col-md-5">
-                        <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="./assets/img/Details.jpg" class="img-fluid rounded-start" alt="Details image">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Event Name</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                                    eligendi ipsam tempora iure unde inventore quas placeat veniam ut facilis ab commodi
+                                    nostrum laudantium cupiditate, repellat quo magnam sunt aliquid!
+                                    Ducimus, omnis nisi sequi dignissimos vel consectetur provident consequatur
+                                    voluptatum reprehenderit quod atque modi magni culpa doloribus beatae, incidunt
+                                    numquam animi error aut quis, obcaecati voluptates sint accusantium. Blanditiis,
+                                    assumenda.
+                                    Enim ex ipsam soluta adipisci corporis! Itaque reiciendis ducimus, deleniti tempora
+                                    magnam labore, illum, voluptates et quis eaque dolore ipsam. Accusantium numquam ab
+                                    quam, aut soluta non voluptas qui officia.
+                                    Nesciunt sed accusantium qui non totam et assumenda atque tempora sit consequatur
+                                    corrupti, exercitationem ducimus possimus neque, eaque quos sequi impedit inventore
+                                    dolores cumque ad nemo! Doloribus delectus vitae voluptatem.</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <ul class="list-group list-group-flush d-flex flex-row flex-wrap justify-content-evenly">
+                                    <li class="list-group-item rounded-pill">Event Date</li>
+                                    <li class="list-group-item rounded-pill">Category</li>
+                                    <li class="list-group-item rounded-pill">Place</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <ul class="list-group list-group-flush d-flex flex-row flex-wrap justify-content-around">
+                                <li class="list-group-item rounded-pill">Capacity</li>
+                                <li class="list-group-item rounded-pill">Assistance or estimate</li>
+                                <li class="list-group-item rounded-pill">Price</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-10">
-                        <label for="inputMessage" class="form-label">Message</label>
-                        <textarea class="form-control" id="inputMessage" placeholder="Write your message here"
-                            rows="3"></textarea>
-                    </div>
-                    <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                </div>
             </div>
 
 
