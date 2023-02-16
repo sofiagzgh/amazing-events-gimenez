@@ -78,6 +78,10 @@ h2 {
     text-transform: uppercase;
 }
 
+.banner a[href="#"] {
+    visibility: hidden;
+}
+
 .search-bar {
     display: flex;
     padding: 1rem 5rem;
