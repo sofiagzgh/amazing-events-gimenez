@@ -35,7 +35,7 @@ header nav {
     box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.navbar-brand img{
+.navbar-brand img {
     height: 4rem;
     filter: drop-shadow(5px 5px 5px #000);
 }
@@ -124,8 +124,12 @@ h2 {
 }
 
 /* Events */
-.cards-container, .details-container, .stats-container {
+.cards-container,
+.details-container,
+.stats-container,
+.contact-container {
     margin: 3rem;
+    font-family: var(--main-font-family);
 }
 
 .card img {
@@ -139,25 +143,45 @@ h2 {
 }
 
 .details-container .list-group-item {
-   margin: 0.5rem;
-   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-   min-width: 9rem;
+    margin: 0.5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    min-width: 9rem;
 }
 
 /* Contact */
-.contact-container {
+.contact-container form {
     padding: 2rem 2.5rem;
-    margin: 3rem;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .contact-container label {
-    font-family: var(--main-font-family);
     color: var(--secondary-color);
     text-shadow: -1px 1px 10px rgb(255, 255, 255);
     padding-top: 2rem;
     padding-left: 0.5rem;
+}
+
+/* STATS */
+.stats-container table caption h3 {
+    font-weight: 800;
+    color: var(--secondary-color);
+    padding-top: 1.5rem;
+}
+
+.stats-table tbody tr td:nth-child(2) {
+    color: var(--primary-color);
+    text-shadow: -1px 2px 5px rgba(98, 255, 33, 0.5);
+}
+
+.stats-table tbody tr td:nth-child(3) {
+    color: var(--primary-color);
+    text-shadow: -1px 2px 5px rgba(255, 33, 33, 0.5);
+}
+
+.stats-table tbody tr td:nth-child(4) {
+    color: var(--primary-color);
+    text-shadow: -1px 2px 5px rgba(240, 255, 33, 0.5);
 }
 
 /* FOOTER */
