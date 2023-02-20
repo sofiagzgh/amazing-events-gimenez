@@ -206,3 +206,32 @@ footer .social a {
     color: var(--secondary-color);
     padding: 0.5rem;
 }
+
+/* Media Queries */
+
+/* Landscape Phone */
+@media only screen and (max-width: 767.98px) {
+    .search-bar .category {
+        min-width: 95vw;
+    }
+
+    .search-bar .search {
+        padding-top: 2rem;
+    }
+}
+
+/* Tablet */
+@media only screen and (max-width: 991.98px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .search-bar {
+        padding: 1rem;
+        justify-content: space-evenly;
+    }
+
+    .search-bar .category {
+        width: 60%;
+    }
+}
