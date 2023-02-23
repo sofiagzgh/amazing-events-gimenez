@@ -123,7 +123,7 @@ h2 {
     bottom: 3px;
 }
 
-/* Events */
+/* EVENTS */
 .cards-container,
 .details-container,
 .stats-container,
@@ -155,7 +155,7 @@ h2 {
     min-width: 9rem;
 }
 
-/* Contact */
+/* CONTACT */
 .contact-container form {
     padding: 2rem 2.5rem;
     border-radius: 10px;
