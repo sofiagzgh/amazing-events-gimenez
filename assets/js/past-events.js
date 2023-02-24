@@ -447,36 +447,13 @@ const events = [
 ]
 
 
-const indexContainer = document.getElementById('home-container');
+const pastContainer = document.getElementById('past-container');
 
 function createCards(arrayData) {
-    let cardsUE = '';
-    let cardsP = '';	
+    let cards = '';
     for (const event of arrayData) {
-        if (parseInt(event.date) >= parseInt(currentDate)) {
-            cardsUE += `
-                <div class="col">
-                    <div class="card h-100 text-bg-light">
-                        <img src="${event.image}" class="card-img-top" alt="${event.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${event.name}</h5>
-                            <p class="card-text">${event.description}</p>
-                        </div>
-                        <div class="card-footer pt-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
-                            <p class="d-flex flex-row flex-md-column flex-xl-row">
-                                <span>
-                                    <i class="bi bi-tag"></i>
-                                    Price:&nbsp;
-                                </span> 
-                                $${event.price}
-                            </p>
-                            <a class="details-btn" href="details.html">Details</a>
-                        </div>
-                    </div>
-                </div>`
-        }
-        else {
-            cardsP += `
+        if (parseInt(event.date) < parseInt(currentDate)) {
+            cards +=  `
                 <div class="col">
                     <div class="card h-100 text-bg-secondary border-danger">
                         <div class="card-header">
@@ -492,7 +469,7 @@ function createCards(arrayData) {
                                 <span>
                                     <i class="bi bi-tag"></i>
                                     Price:&nbsp;
-                                </span> 
+                                </span>
                                 $${event.price}
                             </p>
                             <a class="details-btn" href="details.html">Details</a>
@@ -502,9 +479,9 @@ function createCards(arrayData) {
         }
     }
 
-    return (cardsUE + cardsP)
+    return cards
 }
 
-let elementsCards = createCards(events)
+let elementsCardsP = createCards(events)
 
-indexContainer.innerHTML = elementsCards
+pastContainer.innerHTML = elementsCardsP
