@@ -299,8 +299,23 @@ footer {
     box-shadow: rgba(50, 50, 93, 0.25) 0px -13px 27px -5px, rgba(0, 0, 0, 0.3) 0px -8px 16px -8px;
 }
 
+footer>p {
+    font-family: var(--special-font-family);
+    font-size: 1.5rem;
+    color: var(--secondary-bg-color);
+}
+
+footer>p:hover {
+    background-image: var(--rainbow-gradient);
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: -2px -3px 0px rgb(255, 255, 255);
+}
+
 .social ul,
-footer p {
+footer>p {
     padding: 0;
     margin: 0;
 }
@@ -320,8 +335,8 @@ footer p {
     display: inline-flex;
     font-size: 1.7rem;
     text-decoration: none;
-    color: var(--secondary-bg-color);
-    text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.5);
+    color: var(--secondary-color);
+    text-shadow: -2px 2px 6px rgba(0, 0, 0, 0.368);
     width: 3rem;
     height: 3rem;
     transition: .5s linear;
