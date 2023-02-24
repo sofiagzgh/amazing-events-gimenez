@@ -462,8 +462,8 @@ function createCards(arrayData) {
                             <h5 class="card-title">${event.name}</h5>
                             <p class="card-text">${event.description}</p>
                         </div>
-                        <div class="card-footer pt-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
-                            <p class="d-flex flex-row flex-md-column flex-xl-row">
+                        <div class="card-footer pt-3 pb-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
+                            <p class="mb-0 d-flex flex-row flex-md-column flex-xl-row">
                                 <span>
                                     <i class="bi bi-tag"></i>
                                     Price:&nbsp;
@@ -487,8 +487,8 @@ function createCards(arrayData) {
                             <h5 class="card-title">${event.name}</h5>
                             <p class="card-text">${event.description}</p>
                         </div>
-                        <div class="card-footer pt-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
-                            <p class="d-flex flex-row flex-md-column flex-xl-row">
+                        <div class="card-footer pt-3 pb-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
+                            <p class="mb-0 d-flex flex-row flex-md-column flex-xl-row">
                                 <span>
                                     <i class="bi bi-tag"></i>
                                     Price:&nbsp;

@@ -308,7 +308,6 @@ footer>p {
 footer>p:hover {
     background-image: var(--rainbow-gradient);
     background-clip: text;
-    text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: -2px -3px 0px rgb(255, 255, 255);
