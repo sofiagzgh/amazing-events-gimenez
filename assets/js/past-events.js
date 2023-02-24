@@ -1,6 +1,6 @@
 const pastContainer = document.getElementById('past-container');
 
-function createCards(arrayData) {
+function createCardsPE(arrayData) {
     let cards = '';
     for (const event of arrayData) {
         if (parseInt(event.date) < parseInt(currentDate)) {
@@ -33,6 +33,6 @@ function createCards(arrayData) {
     return cards
 }
 
-let elementsCardsP = createCards(events)
+let elementsCardsPE = createCardsPE(events)
 
-pastContainer.innerHTML = elementsCardsP
+pastContainer.innerHTML = elementsCardsPE

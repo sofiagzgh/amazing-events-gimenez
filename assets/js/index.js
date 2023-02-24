@@ -2,7 +2,7 @@ const indexContainer = document.getElementById('home-container');
 
 function createCards(arrayData) {
     let cardsUE = '';
-    let cardsP = '';	
+    let cardsPE = '';
     for (const event of arrayData) {
         if (parseInt(event.date) >= parseInt(currentDate)) {
             cardsUE += `
@@ -27,7 +27,7 @@ function createCards(arrayData) {
                 </div>`
         }
         else {
-            cardsP += `
+            cardsPE += `
                 <div class="col">
                     <div class="card h-100 text-bg-secondary border-danger">
                         <div class="card-header">
@@ -53,7 +53,7 @@ function createCards(arrayData) {
         }
     }
 
-    return (cardsUE + cardsP)
+    return (cardsUE + cardsPE)
 }
 
 let elementsCards = createCards(events)
