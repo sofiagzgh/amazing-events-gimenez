@@ -17,16 +17,15 @@ function createCardsUE(arrayData) {
                                 <span>
                                     <i class="bi bi-tag"></i>
                                     Price:&nbsp;
-                                </span> 
+                                </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html">Details</a>
+                            <a class="details-btn" href="details.html"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`
         }
     }
-
     return cards
 }
 

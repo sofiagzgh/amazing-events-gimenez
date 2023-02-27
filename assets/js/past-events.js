@@ -23,7 +23,7 @@ function createCardsPE(arrayData) {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html">Details</a>
+                            <a class="details-btn" href="details.html"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`
