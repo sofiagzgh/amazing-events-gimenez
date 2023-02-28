@@ -109,28 +109,51 @@ h2 {
     visibility: hidden;
 }
 
+/* CATEGORY/SEARCH BAR*/
 .search-bar {
-    display: flex;
-    padding: 1rem 5rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.category {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 1rem 4.5rem;
 }
 
 .category label {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.6rem;
 }
 
-.category .search input {
-    margin-right: 0;
-    padding-right: 0;
+.custom-checkbox {
+    cursor: pointer;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    width: 18px;
+    height: 18px;
+    appearance: none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    background-position: 0 -2rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-checkbox:checked {
+    background-color: var(--secondary-bg-color);
+    background-position: 0 0;
+}
+
+.custom-checkbox:focus {
+    border-style: dashed;
+}
+
+.custom-checkbox:disabled {
+    background-color: var(--primary-bg-color);
+    background-image: none;
+}
+
+.custom-checkbox:disabled:checked {
+    background-color: var(--primary-bg-color);
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
+
+.search-bar span {
+    margin-left: 0.3rem;
 }
 
 .search {
@@ -230,7 +253,6 @@ h2 {
 }
 
 /* Buttons */
-
 .details-btn {
     padding: 0.2em 0.6rem;
     text-decoration: none;
@@ -307,14 +329,16 @@ h2 {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.contact-btn span, .details-btn span {
+.contact-btn span,
+.details-btn span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.contact-btn span:after, .details-btn span:after {
+.contact-btn span:after,
+.details-btn span:after {
     content: '❯';
     position: absolute;
     opacity: 0;
@@ -335,7 +359,8 @@ h2 {
     padding-right: 35px;
 }
 
-.contact-btn:hover span:after, .details-btn:hover span:after {
+.contact-btn:hover span:after,
+.details-btn:hover span:after {
     opacity: 1;
     right: 0;
 }
@@ -605,7 +630,7 @@ footer>p {
     }
 
     .search-bar {
-        padding: 1rem;
+        padding: 1rem 3rem;
         justify-content: space-evenly;
     }
 

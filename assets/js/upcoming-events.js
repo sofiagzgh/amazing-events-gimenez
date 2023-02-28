@@ -43,7 +43,10 @@ function createCategories(arrayData) {
     arrayData.forEach(event => {
         if (!categories.includes(event.category)) {
             categories += `
-            <label><input type="checkbox"> ${event.category}</label>
+            <label class="d-flex align-items-center">
+                <input type="checkbox" class="custom-checkbox" name="category" value="${event.category.toLowerCase()}">
+                <span>${event.category}</span>
+            </label>
             `
         }
     });
