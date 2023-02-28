@@ -1,3 +1,5 @@
+// CARDS
+
 const indexContainer = document.getElementById('home-container');
 
 function createCards(arrayData) {
@@ -59,3 +61,24 @@ function createCards(arrayData) {
 let elementsCards = createCards(events)
 
 indexContainer.innerHTML = elementsCards
+
+
+// CATEGORIES
+
+const categoryContainer = document.getElementById('category-container');
+
+function createCategories(arrayData) {
+    let categories = '';
+    arrayData.forEach(event => {
+        if (!categories.includes(event.category)) {
+            categories += `
+            <label><input type="checkbox"> ${event.category}</label>
+            `
+        }
+    });
+    return categories
+}
+
+let uniqueCategories = createCategories(events);
+
+categoryContainer.innerHTML = uniqueCategories;

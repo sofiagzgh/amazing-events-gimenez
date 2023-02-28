@@ -156,6 +156,7 @@ h2 {
 .stats-container,
 .contact-container {
     margin: 3rem;
+    padding-bottom: 3rem;
     font-family: var(--main-font-family);
     -webkit-animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;
     animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;

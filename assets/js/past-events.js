@@ -36,3 +36,24 @@ function createCardsPE(arrayData) {
 let elementsCardsPE = createCardsPE(events)
 
 pastContainer.innerHTML = elementsCardsPE
+
+
+// CATEGORIES
+
+const categoryContainer = document.getElementById('category-container');
+
+function createCategories(arrayData) {
+    let categories = '';
+    arrayData.forEach(event => {
+        if (!categories.includes(event.category)) {
+            categories += `
+            <label><input type="checkbox"> ${event.category}</label>
+            `
+        }
+    });
+    return categories
+}
+
+let uniqueCategories = createCategories(events);
+
+categoryContainer.innerHTML = uniqueCategories;
