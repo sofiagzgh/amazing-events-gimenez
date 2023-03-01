@@ -49,7 +49,7 @@ body {
 }
 
 main {
-    padding: 5.6rem 0 5rem 0;
+    padding: 5.6rem 0 3rem 0;
 }
 
 /* Scrollbar */
@@ -81,7 +81,7 @@ header nav {
     height: 4rem;
     filter: drop-shadow(5px 5px 5px #000);
     -webkit-transition: opacity 1s ease-in-out;
-    transition: opacity .6s ease-in-out;
+    transition: opacity .2s ease-in-out;
     opacity: .75;
 }
 
@@ -199,11 +199,32 @@ h2 {
     justify-content: center;
 }
 
+#mySearch {
+    padding: 6px 9px;
+    border: 3px solid var(--primary-bg-color);
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    font-size: 17px;
+}
+
+#mySearch:focus{
+    outline: none;
+    border: 3px solid var(--secondary-color);
+    border-right: none;
+}
+
 .search button {
     margin-left: 0;
     padding-left: 0;
     width: 3rem;
     border-radius: 0 50px 50px 0;
+}
+
+.search button svg:hover {
+    font-weight: 700;
+    fill: var(--secondary-color);
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .search button svg {
@@ -241,6 +262,10 @@ h2 {
 /* DETAILS */
 .details-container .card img {
     height: 100%;
+}
+
+#details-section {
+    background: repeating-radial-gradient( circle at 0 0, #eee,#ccc 5px);
 }
 
 .details-container .list-group-item {

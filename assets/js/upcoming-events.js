@@ -2,6 +2,7 @@ const UEContainer = document.getElementById('ue-container');
 
 function createCardsUE(arrayData) {
     let cards = '';
+
     for (const event of arrayData) {
         if (parseInt(event.date) >= parseInt(currentDate)) {
             cards += `
@@ -40,6 +41,7 @@ const categoryContainer = document.getElementById('category-container');
 
 function createCategories(arrayData) {
     let categories = '';
+
     arrayData.forEach(event => {
         if (!categories.includes(event.category)) {
             categories += `
@@ -56,3 +58,21 @@ function createCategories(arrayData) {
 let uniqueCategories = createCategories(events);
 
 categoryContainer.innerHTML = uniqueCategories;
+
+// SEARCH
+
+function searchEvent() {
+    const input = document.getElementById('mySearch').value.toLowerCase();
+    const cardContainer = document.getElementById('ue-container');
+    const cards = cardContainer.getElementsByClassName('col');
+
+    for (let card of cards) {
+        let title = card.querySelector("h5.card-title");
+
+        if (title.innerText.toLowerCase().indexOf(input) > -1) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none"
+        }
+    }
+}
