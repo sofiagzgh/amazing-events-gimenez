@@ -70,7 +70,7 @@ main {
 ::-webkit-scrollbar-thumb:hover {
     background-image: var(--rainbow-gradient-2);
     -webkit-box-shadow: inset 0 0 6px var(--secondary-color);
-  }
+}
 
 /* HEADER */
 header nav {
@@ -238,6 +238,7 @@ h2 {
     object-fit: cover;
 }
 
+/* DETAILS */
 .details-container .card img {
     height: 100%;
 }
@@ -247,6 +248,20 @@ h2 {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     min-width: 9rem;
     cursor: pointer;
+    height: 2.5rem;
+}
+
+.details-container .list-group-item i {
+    background-color: var(--secondary-bg-color);
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+    color: white;
+    position: relative;
+    right: 16px;
+    border: 3px outset var(--secondary-color);
+
 }
 
 /* CONTACT */
