@@ -76,6 +76,7 @@ main {
 /* HEADER */
 header nav {
     box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    min-height: 6rem;
 }
 
 .navbar-brand img {
@@ -209,7 +210,7 @@ h2 {
     font-size: 17px;
 }
 
-#mySearch:focus{
+#mySearch:focus {
     outline: none;
     border: 3px solid var(--secondary-color);
     border-right: none;
@@ -267,7 +268,7 @@ h2 {
 }
 
 #details-section {
-    background: repeating-radial-gradient( circle at 0 0, #eee,#ccc 5px);
+    background: repeating-radial-gradient(circle at 0 0, #eee, #ccc 5px);
 }
 
 .details-container .list-group-item {
@@ -695,9 +696,23 @@ footer>p {
 /* Landscape Phone */
 @media only screen and (max-width: 767.98px) {
     .navbar-brand img {
-        padding-left: 5px;
+        height: 3rem;
+        padding-left: 0;
     }
-    
+
+    .navbar-toggler {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    span.navbar-toggler-icon{
+        height: 1em;
+        width: 1em;
+        position: relative;
+        bottom: 3px;
+        right: 3px;
+    }
+
     .search-bar .category {
         min-width: 95vw;
     }
