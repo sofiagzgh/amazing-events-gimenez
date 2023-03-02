@@ -1,9 +1,11 @@
-const UEContainer = document.getElementById('ue-container');
+// CARDS
 
-function createCardsUE(arrayData) {
+const ueContainer = document.getElementById('ue-container');
+
+const createCardsUE = (arrayData) => {
     let cards = '';
 
-    for (const event of arrayData) {
+    arrayData.forEach((event) => {
         if (parseInt(event.date) >= parseInt(currentDate)) {
             cards += `
                 <div class="col">
@@ -24,22 +26,20 @@ function createCardsUE(arrayData) {
                             <a class="details-btn" href="details.html"><span>Details</span></a>
                         </div>
                     </div>
-                </div>`
-        }
-    }
-    return cards
+                </div>`}
+    });
+
+    ueContainer.innerHTML = cards
 }
 
-let elementsCardsUE = createCardsUE(events)
-
-UEContainer.innerHTML = elementsCardsUE
+createCardsUE(events)
 
 
 // CATEGORIES
 
 const categoryContainer = document.getElementById('category-container');
 
-function createCategories(arrayData) {
+const createCategories = (arrayData) => {
     let categories = '';
 
     arrayData.forEach(event => {
@@ -52,27 +52,19 @@ function createCategories(arrayData) {
             `
         }
     });
-    return categories
+
+    categoryContainer.innerHTML = categories
 }
 
-let uniqueCategories = createCategories(events);
+createCategories(events)
 
-categoryContainer.innerHTML = uniqueCategories;
 
 // SEARCH
 
-function searchEvent() {
-    const input = document.getElementById('mySearch').value.toLowerCase();
-    const cardContainer = document.getElementById('ue-container');
-    const cards = cardContainer.getElementsByClassName('col');
+const searchInput = document.getElementById('mySearch')
 
-    for (let card of cards) {
-        let title = card.querySelector("h5.card-title");
+searchInput.addEventListener("keyup", () => {
+    let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.toLowerCase()))
 
-        if (title.innerText.toLowerCase().indexOf(input) > -1) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none"
-        }
-    }
-}
+    createCardsUE(filteredCards)
+})

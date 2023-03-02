@@ -1,9 +1,11 @@
-const pastContainer = document.getElementById('past-container');
+// CARDS
 
-function createCardsPE(arrayData) {
+const peContainer = document.getElementById('past-container');
+
+const createCardsPE = (arrayData) => {
     let cards = '';
 
-    for (const event of arrayData) {
+    arrayData.forEach((event) => {
         if (parseInt(event.date) < parseInt(currentDate)) {
             cards += `
                 <div class="col">
@@ -29,21 +31,19 @@ function createCardsPE(arrayData) {
                     </div>
                 </div>`
         }
-    }
+    });
 
-    return cards
+    peContainer.innerHTML = cards
 }
 
-let elementsCardsPE = createCardsPE(events)
-
-pastContainer.innerHTML = elementsCardsPE
+createCardsPE(events)
 
 
 // CATEGORIES
 
 const categoryContainer = document.getElementById('category-container');
 
-function createCategories(arrayData) {
+const createCategories = (arrayData) => {
     let categories = '';
 
     arrayData.forEach(event => {
@@ -56,27 +56,19 @@ function createCategories(arrayData) {
             `
         }
     });
-    return categories
+
+    categoryContainer.innerHTML = categories
 }
 
-let uniqueCategories = createCategories(events);
+createCategories(events)
 
-categoryContainer.innerHTML = uniqueCategories;
 
 // SEARCH
 
-function searchEvent() {
-    const input = document.getElementById('mySearch').value.toLowerCase();
-    const cardContainer = document.getElementById('past-container');
-    const cards = cardContainer.getElementsByClassName('col');
+const searchInput = document.getElementById('mySearch')
 
-    for (let card of cards) {
-        let title = card.querySelector("h5.card-title");
+searchInput.addEventListener("keyup", () => {
+    let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.toLowerCase()))
 
-        if (title.innerText.toLowerCase().indexOf(input) > -1) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none"
-        }
-    }
-}
+    createCardsPE(filteredCards)
+})
