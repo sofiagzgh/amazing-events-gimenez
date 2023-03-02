@@ -6,7 +6,7 @@ const createCardsUE = (arrayData) => {
     let cards = '';
 
     arrayData.forEach((event) => {
-        if (parseInt(event.date) >= parseInt(currentDate)) {
+        if (event.date >= currentDate) {
             cards += `
                 <div class="col">
                     <div class="card h-100 text-bg-light">
