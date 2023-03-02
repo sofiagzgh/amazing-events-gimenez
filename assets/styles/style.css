@@ -79,10 +79,11 @@ header nav {
 
 .navbar-brand img {
     height: 4rem;
+    padding-left: 10px;
     filter: drop-shadow(5px 5px 5px #000);
     -webkit-transition: opacity 1s ease-in-out;
     transition: opacity .2s ease-in-out;
-    opacity: .75;
+    opacity: .8;
 }
 
 .navbar-brand img:hover {
@@ -692,6 +693,10 @@ footer>p {
 
 /* Landscape Phone */
 @media only screen and (max-width: 767.98px) {
+    .navbar-brand img {
+        padding-left: 5px;
+    }
+    
     .search-bar .category {
         min-width: 95vw;
     }
