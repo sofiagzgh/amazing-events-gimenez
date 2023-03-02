@@ -65,10 +65,20 @@ createCategories(events)
 
 // SEARCH
 
-const searchInput = document.getElementById('mySearch')
+const searchInputPE = document.getElementById('my-search-pe')
+const noResultsMessagePE = document.getElementById('no-results-message-pe')
 
-searchInput.addEventListener("keyup", () => {
-    let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+searchInputPE.addEventListener("keyup", () => {
+    let filteredCardsPE = events.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.toLowerCase()))
 
-    createCardsPE(filteredCards)
+    createCardsPE(filteredCardsPE)
+
+    if (Object.keys(filteredCardsPE).length === 0) {
+        noResultsMessagePE.innerHTML = `
+        <img src="./assets/img/no-results.gif" alt="No results found">
+        <h3>We're sorry</h3>
+        <h6>but there are no results for your search "${searchInputPE.value}"</h6>`
+    } else {
+        noResultsMessagePE.innerHTML = '';
+    }
 })

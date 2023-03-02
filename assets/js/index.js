@@ -89,9 +89,19 @@ createCategories(events)
 // SEARCH
 
 const searchInput = document.getElementById('mySearch')
+const noResultsMessage = document.getElementById('no-results-message')
 
 searchInput.addEventListener("keyup", () => {
     let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.toLowerCase()))
-
+    
     createCardsHome(filteredCards)
+
+    if (Object.keys(filteredCards).length === 0) {
+        noResultsMessage.innerHTML =  `
+        <img src="./assets/img/no-results.gif" alt="No results found">
+        <h3>We're sorry</h3>
+        <h6>but there are no results for your search "${searchInput.value}"</h6>`
+    } else {
+        noResultsMessage.innerHTML = '';
+    }
 })
