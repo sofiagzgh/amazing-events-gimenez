@@ -10,7 +10,7 @@ const createCardsHome = (arrayData) => {
         if (event.date >= currentDate) {
             cardsUE += `
                 <div class="col">
-                    <div class="card h-100 text-bg-light">
+                    <div class="card ue-card h-100 text-bg-light">
                         <img src="${event.image}" class="card-img-top" alt="${event.name}">
                         <div class="card-body">
                             <h5 class="card-title">${event.name}</h5>
@@ -48,7 +48,7 @@ const createCardsHome = (arrayData) => {
                                     </span> 
                                     $${event.price}
                                 </p>
-                                <a class="details-btn" href="details.html"><span>Details</span></a>
+                                <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
                             </div>
                         </div>
                     </div>

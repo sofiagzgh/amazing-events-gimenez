@@ -161,7 +161,7 @@ h2 {
 
 .custom-checkbox {
     cursor: pointer;
-    background-color: #fff;
+    background-color: #ffffff70;
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
     width: 18px;
     height: 18px;
@@ -240,8 +240,9 @@ h2 {
 .details-container,
 .stats-container,
 .contact-container {
-    margin: 3rem;
-    padding-bottom: 3rem;
+    margin-top: 3rem;
+    padding-bottom: 8rem;
+    min-width: 90%;
     font-family: var(--main-font-family);
     -webkit-animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;
     animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;
@@ -250,6 +251,10 @@ h2 {
 .cards-container .card:hover {
     -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .card-header {
@@ -275,12 +280,12 @@ h2 {
 }
 
 /* DETAILS */
-.details-container .card img {
-    height: 100%;
+#details-section, #contact-section {
+    background: repeating-radial-gradient(circle at 0 0, #eee, #ccc 5px);
 }
 
-#details-section {
-    background: repeating-radial-gradient(circle at 0 0, #eee, #ccc 5px);
+.details-container .card img {
+    height: 100%;
 }
 
 .details-container .list-group-item {
@@ -310,10 +315,40 @@ h2 {
 }
 
 /* CONTACT */
+.contact-container {
+    min-width: 90%;
+}
 .contact-container form {
-    padding: 2rem 2.5rem;
+    padding: 1rem 2.5rem;
     border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+.contact-container fieldset {
+    position: relative;
+    background-color: white;
+    border: 6px inset var(--secondary-bg-color);
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    padding: 1rem 1rem 4rem 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.contact-container fieldset:after {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-top: 0px solid black;
+    border-right: 7px solid black;
+    border-bottom: 7px solid black;
+    border-left: 0px solid black;
+    top: 101.5%;
+    left: 50%;
+    margin-left: -25px;
+    content: '';
+    transform: rotate(45deg);
+    margin-top: -25px;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .contact-container label {
@@ -386,10 +421,6 @@ h2 {
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     color: white;
-}
-
-.details-btn:active {
-    color: #000;
 }
 
 .details-btn:active:after {

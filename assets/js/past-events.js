@@ -1,12 +1,15 @@
 // CARDS
-
 const peContainer = document.getElementById('past-container');
+
+const filterEventsPE = (arrayData) => {
+    let pe = arrayData.filter(event => event.date < currentDate);
+    return pe;
+}
 
 const createCardsPE = (arrayData) => {
     let cards = '';
 
     arrayData.forEach((event) => {
-        if (event.date < currentDate) {
             cards += `
                 <div class="col">
                     <div class="card h-100 text-bg-secondary border-danger">
@@ -26,17 +29,18 @@ const createCardsPE = (arrayData) => {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html"><span>Details</span></a>
+                            <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`
         }
-    });
+    );
 
     peContainer.innerHTML = cards
 }
 
-createCardsPE(events)
+const arrPE = filterEventsPE(events);
+createCardsPE(arrPE);
 
 
 // CATEGORIES
@@ -69,7 +73,7 @@ const searchInputPE = document.getElementById('my-search-pe')
 const noResultsMessagePE = document.getElementById('no-results-message-pe')
 
 searchInputPE.addEventListener("keyup", () => {
-    let filteredCardsPE = events.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.toLowerCase()))
+    let filteredCardsPE = arrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.toLowerCase()))
 
     createCardsPE(filteredCardsPE)
 

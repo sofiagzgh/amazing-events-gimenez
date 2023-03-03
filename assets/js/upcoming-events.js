@@ -2,14 +2,19 @@
 
 const ueContainer = document.getElementById('ue-container');
 
+
+const filterEventsUE = (arrayData) => {
+    let ue = arrayData.filter(event => event.date >= currentDate);
+    return ue;
+}
+
 const createCardsUE = (arrayData) => {
     let cards = '';
 
     arrayData.forEach((event) => {
-        if (event.date >= currentDate) {
             cards += `
                 <div class="col">
-                    <div class="card h-100 text-bg-light">
+                    <div class="card ue-card h-100 text-bg-light">
                         <img src="${event.image}" class="card-img-top" alt="${event.name}">
                         <div class="card-body">
                             <h5 class="card-title">${event.name}</h5>
@@ -23,16 +28,17 @@ const createCardsUE = (arrayData) => {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html"><span>Details</span></a>
+                            <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
                         </div>
                     </div>
-                </div>`}
+                </div>`
     });
 
     ueContainer.innerHTML = cards
 }
 
-createCardsUE(events)
+const arrUE = filterEventsUE(events);
+createCardsUE(arrUE)
 
 
 // CATEGORIES
@@ -45,10 +51,10 @@ const createCategories = (arrayData) => {
     arrayData.forEach(event => {
         if (!categories.includes(event.category)) {
             categories += `
-            <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${event.category.toLowerCase()}">
-                <span>${event.category}</span>
-            </label>
+                <label class="d-flex align-items-center">
+                    <input type="checkbox" class="custom-checkbox" name="category" value="${event.category.toLowerCase()}">
+                    <span>${event.category}</span>
+                </label>
             `
         }
     });
@@ -65,15 +71,16 @@ const searchInputUE = document.getElementById('my-search-ue')
 const noResultsMessageUE = document.getElementById('no-results-message-ue')
 
 searchInputUE.addEventListener("keyup", () => {
-    let filteredCardsUE = events.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.toLowerCase()));
+    let filteredCardsUE = arrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.toLowerCase()));
 
     createCardsUE(filteredCardsUE)
-console.log(Object.keys(filteredCardsUE).length)
+    
     if (Object.keys(filteredCardsUE).length === 0) {
         noResultsMessageUE.innerHTML = `
-        <img src="./assets/img/no-results.gif" alt="No results found">
-        <h3>We're sorry</h3>
-        <h6>but there are no results for your search "${searchInputUE.value}"</h6>`
+            <img src="./assets/img/no-results.gif" alt="No results found">
+            <h3>We're sorry</h3>
+            <h6>but there are no results for your search "${searchInputUE.value}"</h6>
+        `
     } else {
         noResultsMessageUE.innerHTML = '';
     }
