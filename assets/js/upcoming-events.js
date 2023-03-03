@@ -28,7 +28,7 @@ const createCardsUE = (arrayData) => {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
+                            <a class="details-btn" href="./details.html?id=${event.id}"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`
@@ -71,7 +71,7 @@ const searchInputUE = document.getElementById('my-search-ue')
 const noResultsMessageUE = document.getElementById('no-results-message-ue')
 
 searchInputUE.addEventListener("keyup", () => {
-    let filteredCardsUE = arrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.toLowerCase()));
+    let filteredCardsUE = arrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.trim().toLowerCase()));
 
     createCardsUE(filteredCardsUE)
     

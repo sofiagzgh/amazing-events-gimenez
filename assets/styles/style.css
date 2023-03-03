@@ -109,6 +109,10 @@ a.nav-link:focus, a.nav-link.active {
 }
 
 /* MAIN */
+section {
+    padding-bottom: 8rem;
+}
+
 .banner {
     background-color: var(--primary-bg-color);
     border-bottom: 1px solid black;
@@ -241,7 +245,7 @@ h2 {
 .stats-container,
 .contact-container {
     margin-top: 3rem;
-    padding-bottom: 8rem;
+    padding-bottom: 3rem;
     min-width: 90%;
     font-family: var(--main-font-family);
     -webkit-animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;
@@ -280,12 +284,28 @@ h2 {
 }
 
 /* DETAILS */
-#details-section, #contact-section {
+#details-section {
     background: repeating-radial-gradient(circle at 0 0, #eee, #ccc 5px);
 }
 
 .details-container .card img {
     height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.details-container .card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background:
+        linear-gradient(to left, var(--secondary-color), rgba(100, 200, 200, 0)),
+        var(--rainbow-gradient);
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+}
+
+.details-container .card-footer {
+    min-width: 54%;
 }
 
 .details-container .list-group-item {
@@ -294,6 +314,8 @@ h2 {
     min-width: 9rem;
     cursor: pointer;
     height: 2.5rem;
+    color: var(--secondary-color);
+    font-weight: bolder;
 }
 
 .details-container .list-group-item:hover {
@@ -314,6 +336,11 @@ h2 {
 
 }
 
+.details-container .list-group-item span{
+    color: #000;
+    font-weight: 200;
+}
+
 /* CONTACT */
 .contact-container {
     min-width: 90%;
@@ -326,7 +353,7 @@ h2 {
 .contact-container fieldset {
     position: relative;
     background-color: white;
-    border: 6px inset var(--secondary-bg-color);
+    border: 2px inset var(--secondary-bg-color);
     border-radius: 50px;
     margin-bottom: 2rem;
     padding: 1rem 1rem 4rem 1rem;
@@ -338,10 +365,10 @@ h2 {
     width: 50px;
     height: 50px;
     border-top: 0px solid black;
-    border-right: 7px solid black;
-    border-bottom: 7px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
     border-left: 0px solid black;
-    top: 101.5%;
+    top: 100.1%;
     left: 50%;
     margin-left: -25px;
     content: '';
@@ -386,7 +413,7 @@ h2 {
 }
 
 /* Buttons */
-.details-btn {
+.details-btn, .back-btn {
     padding: 0.2em 0.6rem;
     text-decoration: none;
     font-weight: 500;
@@ -400,7 +427,7 @@ h2 {
     border-radius: 15px;
 }
 
-.details-btn:before {
+.details-btn:before, .back-btn:before {
     content: "";
     background: var(--rainbow-gradient);
     position: absolute;
@@ -417,21 +444,21 @@ h2 {
     border-radius: 10px;
 }
 
-.details-btn:hover {
+.details-btn:hover, .back-btn:hover {
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     color: white;
 }
 
-.details-btn:active:after {
+.details-btn:active:after, .back-btn:after {
     background: transparent;
 }
 
-.details-btn:hover:before {
+.details-btn:hover:before, .back-btn:hover:before {
     opacity: 1;
 }
 
-.details-btn:after {
+.details-btn:after, .back-btn:after {
     z-index: -1;
     content: "";
     position: absolute;

@@ -24,7 +24,7 @@ const createCardsHome = (arrayData) => {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html"><span>Details</span></a>
+                            <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`
@@ -48,7 +48,7 @@ const createCardsHome = (arrayData) => {
                                     </span> 
                                     $${event.price}
                                 </p>
-                                <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
+                                <a class="details-btn" href="./details.html?id=${event.id}"><span>Details</span></a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const searchInput = document.getElementById('mySearch')
 const noResultsMessage = document.getElementById('no-results-message')
 
 searchInput.addEventListener("keyup", () => {
-    let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+    let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
     
     createCardsHome(filteredCards)
 

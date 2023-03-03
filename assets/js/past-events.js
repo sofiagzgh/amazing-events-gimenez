@@ -29,7 +29,7 @@ const createCardsPE = (arrayData) => {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
+                            <a class="details-btn" href="./details.html?id=${event.id}"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`
@@ -73,7 +73,7 @@ const searchInputPE = document.getElementById('my-search-pe')
 const noResultsMessagePE = document.getElementById('no-results-message-pe')
 
 searchInputPE.addEventListener("keyup", () => {
-    let filteredCardsPE = arrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.toLowerCase()))
+    let filteredCardsPE = arrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.trim().toLowerCase()))
 
     createCardsPE(filteredCardsPE)
 

@@ -1,7 +1,7 @@
 const currentDate = "2022-09-01";
 const events = [
     {
-        "_id": 1,
+        "id": 1,
         "name": "Collectivities Party",
         "category": "Food",
         "date": "2021-12-12",
@@ -13,7 +13,7 @@ const events = [
         "assistance": 42756
     },
     {
-        "_id": 2,
+        "id": 2,
         "name": "Jurassic Park",
         "category": "Museum",
         "date": "2022-07-05",
@@ -25,7 +25,7 @@ const events = [
         "assistance": 6589
     },
     {
-        "_id": 3,
+        "id": 3,
         "name": "Metallica in concert",
         "category": "Concert",
         "date": "2022-01-22",
@@ -37,7 +37,7 @@ const events = [
         "assistance": 497981
     },
     {
-        "_id": 4,
+        "id": 4,
         "name": "10K 4 life",
         "category": "Race",
         "date": "2022-03-01",
@@ -49,7 +49,7 @@ const events = [
         "assistance": 198900
     },
     {
-        "_id": 5,
+        "id": 5,
         "name": "School's book fair",
         "category": "Books",
         "date": "2022-06-01",
@@ -61,7 +61,7 @@ const events = [
         "assistance": 38429
     },
     {
-        "_id": 6,
+        "id": 6,
         "name": "Aladdin",
         "category": "Cinema",
         "date": "2019-05-24",
@@ -73,7 +73,7 @@ const events = [
         "assistance": 1875
     },
     {
-        "_id": 7,
+        "id": 7,
         "name": "Arabic holidays",
         "category": "Food",
         "date": "2022-10-12",
@@ -85,7 +85,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 8,
+        "id": 8,
         "name": "Korean style",
         "category": "Food",
         "date": "2022-01-10",
@@ -97,7 +97,7 @@ const events = [
         "assistance": 48516
     },
     {
-        "_id": 9,
+        "id": 9,
         "name": "Japanese style",
         "category": "Food",
         "date": "2022-02-25",
@@ -109,7 +109,7 @@ const events = [
         "assistance": 49618
     },
     {
-        "_id": 10,
+        "id": 10,
         "name": "Straight from Middle East",
         "category": "Food",
         "date": "2022-04-08",
@@ -121,7 +121,7 @@ const events = [
         "assistance": 42756
     },
     {
-        "_id": 11,
+        "id": 11,
         "name": "Take away",
         "category": "Food",
         "date": "2022-06-27",
@@ -133,7 +133,7 @@ const events = [
         "assistance": 42756
     },
     {
-        "_id": 12,
+        "id": 12,
         "name": "Italian style",
         "category": "Food",
         "date": "2022-08-12",
@@ -145,7 +145,7 @@ const events = [
         "assistance": 42756
     },
     {
-        "_id": 13,
+        "id": 13,
         "name": "Fantasy books",
         "category": "Books",
         "date": "2022-07-23",
@@ -157,7 +157,7 @@ const events = [
         "assistance": 44029
     },
     {
-        "_id": 14,
+        "id": 14,
         "name": "Just for your kitchen",
         "category": "Books",
         "date": "2022-09-14",
@@ -169,7 +169,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 15,
+        "id": 15,
         "name": "BestSeller",
         "category": "Books",
         "date": "2023-01-06",
@@ -181,7 +181,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 16,
+        "id": 16,
         "name": "Just Harry",
         "category": "Books",
         "date": "2023-02-26",
@@ -193,7 +193,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 17,
+        "id": 17,
         "name": "Comicon",
         "category": "Party",
         "date": "2022-08-12",
@@ -205,7 +205,7 @@ const events = [
         "assistance": 45781
     },
     {
-        "_id": 18,
+        "id": 18,
         "name": "Spring Day",
         "category": "Party",
         "date": "2022-10-21",
@@ -217,7 +217,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 19,
+        "id": 19,
         "name": "Cultures",
         "category": "Party",
         "date": "2022-12-21",
@@ -229,7 +229,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 20,
+        "id": 20,
         "name": "For the little ones",
         "category": "Party",
         "date": "2023-02-23",
@@ -241,7 +241,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 21,
+        "id": 21,
         "name": "Epic party",
         "category": "Party",
         "date": "2023-05-23",
@@ -253,7 +253,7 @@ const events = [
         "estimate": 50000
     },
     {
-        "_id": 22,
+        "id": 22,
         "name": "15K NY",
         "category": "Race",
         "date": "2022-08-21",
@@ -265,7 +265,7 @@ const events = [
         "assistance": 926981
     },
     {
-        "_id": 23,
+        "id": 23,
         "name": "15K Buenos Aires",
         "category": "Race",
         "date": "2023-05-30",
@@ -277,7 +277,7 @@ const events = [
         "estimate": 500000
     },
     {
-        "_id": 24,
+        "id": 24,
         "name": "Buenos Aires 2022",
         "category": "Race",
         "date": "2022-09-07",
@@ -289,7 +289,7 @@ const events = [
         "estimate": 500000
     },
     {
-        "_id": 25,
+        "id": 25,
         "name": "New York 2022",
         "category": "Race",
         "date": "2022-11-12",
@@ -301,7 +301,7 @@ const events = [
         "estimate": 1000000
     },
     {
-        "_id": 26,
+        "id": 26,
         "name": "For Life 2nd Edition",
         "category": "Race",
         "date": "2023-01-05",
@@ -313,7 +313,7 @@ const events = [
         "estimate": 300000
     },
     {
-        "_id": 27,
+        "id": 27,
         "name": "Cancer Marathon",
         "category": "Race",
         "date": "2023-03-18",
@@ -325,7 +325,7 @@ const events = [
         "estimate": 300000
     },
     {
-        "_id": 28,
+        "id": 28,
         "name": "Electronic Fest",
         "category": "Concert",
         "date": "2021-01-22",
@@ -337,7 +337,7 @@ const events = [
         "assistance": 488005
     },
     {
-        "_id": 29,
+        "id": 29,
         "name": "Popular Music",
         "category": "Concert",
         "date": "2021-05-22",
@@ -349,7 +349,7 @@ const events = [
         "assistance": 464780
     },
     {
-        "_id": 30,
+        "id": 30,
         "name": "Classics",
         "category": "Concert",
         "date": "2021-05-22",
@@ -361,7 +361,7 @@ const events = [
         "assistance": 421988
     },
     {
-        "_id": 31,
+        "id": 31,
         "name": "Opera",
         "category": "Concert",
         "date": "2023-05-02",
@@ -373,7 +373,7 @@ const events = [
         "estimate": 500000
     },
     {
-        "_id": 32,
+        "id": 32,
         "name": "Reggaeton 2022",
         "category": "Concert",
         "date": "2023-01-23",
@@ -385,7 +385,7 @@ const events = [
         "estimate": 500000
     },
     {
-        "_id": 33,
+        "id": 33,
         "name": "Parisian Museum",
         "category": "Museum",
         "date": "2022-08-21",
@@ -397,7 +397,7 @@ const events = [
         "assistance": 3506
     },
     {
-        "_id": 34,
+        "id": 34,
         "name": "Abstract Art",
         "category": "Museum",
         "date": "2022-10-10",
@@ -409,7 +409,7 @@ const events = [
         "estimate": 1000
     },
     {
-        "_id": 35,
+        "id": 35,
         "name": "Buenos Aires' Museum",
         "category": "Museum",
         "date": "2022-12-02",
@@ -421,7 +421,7 @@ const events = [
         "estimate": 1000
     },
     {
-        "_id": 36,
+        "id": 36,
         "name": "Acropolis",
         "category": "Museum",
         "date": "2023-02-19",
@@ -433,7 +433,7 @@ const events = [
         "estimate": 1600
     },
     {
-        "_id": 37,
+        "id": 37,
         "name": "British Museum",
         "category": "Museum",
         "date": "2023-05-02",
