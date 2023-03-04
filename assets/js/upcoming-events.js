@@ -1,3 +1,11 @@
+// CURRENT DATE
+
+const currentDateContainer = document.getElementById('current-date-p');
+const currentDateElement = new Date(currentDate + "T00:00:00.000-05:00").toDateString();
+currentDateContainer.innerHTML = currentDateElement;
+
+
+
 // CARDS
 
 const ueContainer = document.getElementById('ue-container');

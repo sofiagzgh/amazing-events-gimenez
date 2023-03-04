@@ -1,3 +1,13 @@
+// CURRENT DATE
+
+const currentDateContainer = document.getElementById('current-date-p');
+const currentDateElement = new Date(currentDate + "T00:00:00.000-05:00").toDateString();
+currentDateContainer.innerHTML = currentDateElement;
+
+
+
+// DETAILS CARD
+
 const queryString = location.search;
 
 const params = new URLSearchParams(queryString);
@@ -84,7 +94,7 @@ if (detailEvent.date >= currentDate) {
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-calendar-date"></i>
-                                <span>Date:&nbsp;</span>${detailEvent.date}
+                                <span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailEvent.date}</time>
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-geo-alt-fill"></i>

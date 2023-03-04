@@ -79,6 +79,16 @@ header nav {
     min-height: 6rem;
 }
 
+#current-date-p {
+    font-size: 0.8rem;
+    color: grey;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    bottom: 2rem;
+    left: 29.9rem
+}
+
 .navbar-brand img {
     height: 4rem;
     padding-left: 10px;
@@ -900,6 +910,11 @@ footer>p {
 @media only screen and (max-width: 991.98px) {
     .navbar-collapse {
         text-align: center;
+    }
+
+    #current-date-p {
+        position: initial;
+        padding: 0.7rem  0;
     }
 
     .search-bar {

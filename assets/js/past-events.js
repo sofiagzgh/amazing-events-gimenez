@@ -1,3 +1,11 @@
+// CURRENT DATE
+
+const currentDateContainer = document.getElementById('current-date-p');
+const currentDateElement = new Date(currentDate + "T00:00:00.000-05:00").toDateString();
+currentDateContainer.innerHTML = currentDateElement;
+
+
+
 // CARDS
 
 const peContainer = document.getElementById('past-container');
@@ -11,7 +19,7 @@ const createCardsPE = (arrayData) => {
     let cards = '';
 
     arrayData.forEach((event) => {
-            cards += `
+        cards += `
                 <div class="col">
                     <div class="card h-100 text-bg-secondary border-danger">
                         <div class="card-header bg-dark text-danger bg-gradient">
@@ -34,8 +42,7 @@ const createCardsPE = (arrayData) => {
                         </div>
                     </div>
                 </div>`
-        }
-    );
+    });
 
     peContainer.innerHTML = cards
 }
