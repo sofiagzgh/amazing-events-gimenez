@@ -28,11 +28,11 @@ const createCardsHome = (arrayData) => {
                         </div>
                     </div>
                 </div>`
-            } else {
-                cardsPE += `
+        } else {
+            cardsPE += `
                     <div class="col">
                         <div class="card h-100 text-bg-secondary border-danger">
-                            <div class="card-header">
+                            <div class="card-header bg-dark text-danger bg-gradient">
                                 Past Event
                             </div>
                             <img src="${event.image}" alt="${event.name}">
@@ -53,7 +53,7 @@ const createCardsHome = (arrayData) => {
                         </div>
                     </div>
                     `
-            }
+        }
     });
 
     indexContainer.innerHTML = cardsUE + cardsPE
@@ -62,28 +62,41 @@ const createCardsHome = (arrayData) => {
 createCardsHome(events)
 
 
+
 // CATEGORIES
 
 const categoryContainer = document.getElementById('category-container');
 
-const createCategories = (arrayData) => {
-    let categories = '';
+const filterCategories = (arrayData) => {
+    let categoriesUnique = [];
 
     arrayData.forEach(event => {
-        if (!categories.includes(event.category)) {
-            categories += `
+        if (!categoriesUnique.includes(event.category)) {
+            categoriesUnique.push(event.category);
+        }
+    });
+
+    return categoriesUnique.sort();
+}
+
+const createCategories = (arrayCat) => {
+    let categories = '';
+
+    arrayCat.forEach(cat => {
+        categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${event.category.toLowerCase()}">
-                <span>${event.category}</span>
+                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}">
+                <span>${cat}</span>
             </label>
             `
-        }
     });
 
     categoryContainer.innerHTML = categories
 }
 
-createCategories(events)
+const arrCategories = filterCategories(events);
+createCategories(arrCategories);
+
 
 
 // SEARCH
@@ -93,11 +106,11 @@ const noResultsMessage = document.getElementById('no-results-message')
 
 searchInput.addEventListener("keyup", () => {
     let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
-    
+
     createCardsHome(filteredCards)
 
     if (Object.keys(filteredCards).length === 0) {
-        noResultsMessage.innerHTML =  `
+        noResultsMessage.innerHTML = `
         <img src="./assets/img/no-results.gif" alt="No results found">
         <h3>We're sorry</h3>
         <h6>but there are no results for your search "${searchInput.value}"</h6>`

@@ -41,28 +41,41 @@ const arrUE = filterEventsUE(events);
 createCardsUE(arrUE)
 
 
+
 // CATEGORIES
 
 const categoryContainer = document.getElementById('category-container');
 
-const createCategories = (arrayData) => {
-    let categories = '';
+const filterCategories = (arrayData) => {
+    let categoriesUnique = [];
 
     arrayData.forEach(event => {
-        if (!categories.includes(event.category)) {
-            categories += `
-                <label class="d-flex align-items-center">
-                    <input type="checkbox" class="custom-checkbox" name="category" value="${event.category.toLowerCase()}">
-                    <span>${event.category}</span>
-                </label>
-            `
+        if (!categoriesUnique.includes(event.category)) {
+            categoriesUnique.push(event.category);
         }
+    });
+
+    return categoriesUnique.sort();
+}
+
+const createCategories = (arrayCat) => {
+    let categories = '';
+
+    arrayCat.forEach(cat => {
+        categories += `
+            <label class="d-flex align-items-center">
+                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}">
+                <span>${cat}</span>
+            </label>
+            `
     });
 
     categoryContainer.innerHTML = categories
 }
 
-createCategories(events)
+const arrCategories = filterCategories(events);
+createCategories(arrCategories);
+
 
 
 // SEARCH
