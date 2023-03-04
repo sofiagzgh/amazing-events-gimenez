@@ -18,7 +18,7 @@ const detailEvent = events.find(event => event.id == id);
 
 const detailsContainer = document.getElementById('details-container')
 
-console.log(detailEvent)
+const detailDateFormatted = new Date(detailEvent.date + "T00:00:00.000-05:00").toDateString();
 
 if (detailEvent.date >= currentDate) {
     detailsContainer.innerHTML = `
@@ -44,7 +44,7 @@ if (detailEvent.date >= currentDate) {
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-calendar-date"></i>
-                                <span>Date:&nbsp;</span>${detailEvent.date}
+                                <span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailDateFormatted}</time>
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-geo-alt-fill"></i>
@@ -94,7 +94,7 @@ if (detailEvent.date >= currentDate) {
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-calendar-date"></i>
-                                <span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailEvent.date}</time>
+                                <span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailDateFormatted}</time>
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-geo-alt-fill"></i>
