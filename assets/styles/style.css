@@ -160,7 +160,7 @@ h2 {
     font-family: var(--special-font-family);
     text-transform: uppercase;
     position: relative;
-    top: 5px;
+    top: 2px;
 }
 
 .banner a.h4 {
