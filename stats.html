@@ -25,15 +25,19 @@
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                            <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                          </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-down" viewBox="0 0 16 16">
+                            <path
+                                d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                        </svg>
                     </span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <p id="current-date-p">
-                        <!-- CURRENT DATE HERE -->
-                    </p>
+                    <div class="current-date-container m-0 bg-gradient text-body-secondary">
+                        <p id="current-date-p" class="m-0">
+                            <!-- CURRENT DATE HERE -->
+                        </p>
+                    </div>
                     <div class="navbar-nav">
                         <a class="nav-link" href="index.html">Home</a>
                         <a class="nav-link" href="upcoming-events.html">Upcoming Events</a>
@@ -63,8 +67,10 @@
                     <thead>
                         <tr>
                             <th scope="col" class="p-2">#</th>
-                            <th scope="col" class="p-2 text-success-emphasis">Events with the highest percentage of attendance:</th>
-                            <th scope="col" class="p-2 text-danger-emphasis">Events with the lowest percentage of attendance:</th>
+                            <th scope="col" class="p-2 text-success-emphasis">Events with the highest percentage of
+                                attendance:</th>
+                            <th scope="col" class="p-2 text-danger-emphasis">Events with the lowest percentage of
+                                attendance:</th>
                             <th scope="col" class="p-2 text-warning-emphasis">Events with larger capacity:</th>
                         </tr>
                     </thead>
@@ -90,7 +96,8 @@
                     </tbody>
                 </table>
 
-                <table class="table table-light table-striped table-hover table-bordered border-info caption-top shadow">
+                <table
+                    class="table table-light table-striped table-hover table-bordered border-info caption-top shadow">
                     <caption>
                         <h3>Upcoming events statistics by category</h3>
                     </caption>
@@ -120,7 +127,8 @@
                     </tbody>
                 </table>
 
-                <table class="table table-danger table-striped table-hover table-bordered border-light caption-top shadow">
+                <table
+                    class="table table-danger table-striped table-hover table-bordered border-light caption-top shadow">
                     <caption>
                         <h3>Past events statistics by category</h3>
                     </caption>
@@ -159,15 +167,15 @@
         <div class="social">
             <ul class="icon-list d-flex">
                 <li class="icon-item">
-                  <a href="#" class="icon-link"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="icon-link"><i class="bi bi-facebook"></i></a>
                 </li>
                 <li class="icon-item">
-                  <a href="#" class="icon-link"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="icon-link"><i class="bi bi-instagram"></i></a>
                 </li>
                 <li class="icon-item">
-                  <a href="#" class="icon-link"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="icon-link"><i class="bi bi-whatsapp"></i></a>
                 </li>
-              </ul>
+            </ul>
         </div>
         <p>FE01-TM</p>
     </footer>
@@ -175,7 +183,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="./assets/js/index.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>
 
 </html>

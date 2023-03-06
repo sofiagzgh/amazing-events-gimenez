@@ -24,9 +24,10 @@ const createCardsUE = (arrayData) => {
                 <div class="col">
                     <div class="card ue-card h-100 text-bg-light">
                         <img src="${event.image}" class="card-img-top" alt="${event.name}">
-                        <div class="card-body">
+                        <div class="card-body text-start pt-1">
+                            <p class="card-text fs-6 p-0 mb-1 text-muted">${event.category}</p>
                             <h5 class="card-title">${event.name}</h5>
-                            <p class="card-text">${event.description}</p>
+                            <p class="card-text card-descr fs-6">${event.description}</p>
                         </div>
                         <div class="card-footer pt-3 pb-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
                             <p class="mb-0 d-flex flex-row flex-md-column flex-xl-row">
@@ -36,7 +37,7 @@ const createCardsUE = (arrayData) => {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="./details.html?id=${event.id}"><span>Details</span></a>
+                            <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`

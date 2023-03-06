@@ -33,9 +33,11 @@
                     </span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <p id="current-date-p">
-                        <!-- CURRENT DATE HERE -->
-                    </p>
+                    <div class="current-date-container m-0 bg-gradient text-body-secondary">
+                        <p id="current-date-p" class="m-0">
+                            <!-- CURRENT DATE HERE -->
+                        </p>
+                    </div>
                     <div class="navbar-nav">
                         <a class="nav-link active flex-grow-1" aria-current="page" href="#">Home</a>
                         <a class="nav-link" href="upcoming-events.html">Upcoming Events</a>
@@ -62,7 +64,7 @@
                     <!-- CATEGORIES HERE -->
                 </div>
                 <div class="search">
-                    <input type="search" class="mySearch" id="mySearch" class="filter"
+                    <input type="search" class="mySearch filter" id="mySearch"
                         placeholder="Search event name..">
                     <button type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -79,8 +81,8 @@
                     id="home-container">
                     <!-- CARDS HERE -->
                 </div>
-                <div class="no-results-message" id="no-results-message"
-                    class="d-flex flex-column justify-content-center align-items-center">
+                <div id="no-results-message"
+                    class="no-results-message d-flex flex-column justify-content-center align-items-center">
                     <!-- MESSAGE HERE -->
                 </div>
             </div>
@@ -106,8 +108,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./data.js"></script>
-    <script type="text/javascript" src="./assets/js/index.js"></script>
+    <script src="./data.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>
 
 </html>

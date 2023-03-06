@@ -20,9 +20,10 @@ const createCardsHome = (arrayData) => {
                 <div class="col">
                     <div class="card ue-card h-100 text-bg-light">
                         <img src="${event.image}" class="card-img-top" alt="${event.name}">
-                        <div class="card-body">
+                        <div class="card-body text-start pt-1">
+                            <p class="card-text fs-6 p-0 mb-1 text-muted">${event.category}</p>
                             <h5 class="card-title">${event.name}</h5>
-                            <p class="card-text">${event.description}</p>
+                            <p class="card-text card-descr fs-6">${event.description}</p>
                         </div>
                         <div class="card-footer pt-3 pb-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
                             <p class="mb-0 d-flex flex-row flex-md-column flex-xl-row">
@@ -39,14 +40,15 @@ const createCardsHome = (arrayData) => {
         } else {
             cardsPE += `
                     <div class="col">
-                        <div class="card h-100 text-bg-secondary border-danger">
+                        <div class="card pe-card h-100 text-bg-secondary border-danger">
+                            <img src="${event.image}" alt="${event.name}">
                             <div class="card-header bg-dark text-danger bg-gradient">
                                 Past Event
                             </div>
-                            <img src="${event.image}" alt="${event.name}">
-                            <div class="card-body">
+                            <div class="card-body pt-1 text-start">
+                                <p class="card-text fs-6 p-0 mb-1 text-white-50">${event.category}</p>
                                 <h5 class="card-title">${event.name}</h5>
-                                <p class="card-text">${event.description}</p>
+                                <p class="card-text card-descr fs-6">${event.description}</p>
                             </div>
                             <div class="card-footer pt-3 pb-3 d-flex justify-content-around align-items-center align-items-xl-baseline">
                                 <p class="mb-0 d-flex flex-row flex-md-column flex-xl-row">
@@ -59,8 +61,7 @@ const createCardsHome = (arrayData) => {
                                 <a class="details-btn" href="./details.html?id=${event.id}"><span>Details</span></a>
                             </div>
                         </div>
-                    </div>
-                    `
+                    </div>`
         }
     });
 
