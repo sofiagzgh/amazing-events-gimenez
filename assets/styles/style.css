@@ -298,8 +298,7 @@ h2 {
 .cards-container .card-title {
     padding-bottom: 0.3rem;
     background:
-        linear-gradient(to right, var(--secondary-color), rgba(100, 200, 200, 0)),
-        var(--rainbow-gradient);
+        linear-gradient(to right, var(--secondary-color), rgba(100, 200, 200, 0));
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
@@ -313,7 +312,7 @@ h2 {
 
 .ue-card img {
     transition: filter 0.4s ease-in-out;
-    filter: sepia(100%) hue-rotate(288deg) saturate(350%) brightness(80%);
+    filter: sepia(100%) hue-rotate(290deg) saturate(350%) brightness(80%);
 }
 
 .ue-card:hover img {
@@ -370,10 +369,9 @@ h2 {
 
 .details-container .card-title {
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 500;
     background:
-        linear-gradient(to left, var(--secondary-color), rgba(100, 200, 200, 0)),
-        var(--rainbow-gradient);
+        linear-gradient(to left, var(--secondary-color), rgba(100, 200, 200, 0));
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
@@ -918,8 +916,8 @@ footer>p {
     .details-container .card img {
         width: 100%;
         transition: height 0.9s ease-in-out;
-        
-  transition-delay: 0.5s;
+
+        transition-delay: 0.5s;
         height: 10rem;
     }
 
