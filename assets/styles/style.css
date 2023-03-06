@@ -312,7 +312,7 @@ h2 {
 
 .ue-card img {
     transition: filter 0.4s ease-in-out;
-    filter: sepia(100%) hue-rotate(290deg) saturate(350%) brightness(80%);
+    filter: sepia(100%) hue-rotate(288deg) saturate(350%) brightness(85%);
 }
 
 .ue-card:hover img {
@@ -365,6 +365,11 @@ h2 {
 .details-container .card img {
     height: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background: linear-gradient(0deg, #000000c9, var(--secondary-bg-color));
+}
+
+.details-container .card img:hover {
+    object-fit: contain;
 }
 
 .details-container .card-title {
@@ -980,6 +985,10 @@ footer>p {
     .no-results-message img {
         width: 12rem;
         padding: 0 2rem;
+    }
+
+    .details-container .card img:hover {
+        object-fit: cover;
     }
 }
 
