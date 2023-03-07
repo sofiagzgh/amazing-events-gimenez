@@ -94,7 +94,7 @@ const createCategories = (arrayCat) => {
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}">
+                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}" onclick="filterCategorySelection('${cat}')">
                 <span>${cat}</span>
             </label>
             `
@@ -126,4 +126,26 @@ searchInput.addEventListener("keyup", () => {
     } else {
         noResultsMessage.innerHTML = '';
     }
+})
+
+
+
+// CATEGORY FILTER
+
+const filterEventsByCategory = (category, arrayEvents) => {
+    let filteredEvents = arrayEvents.filter(event => event.category == category)
+    return filteredEvents
+}
+
+const filterCategorySelection = (category =>  {
+    let selector = document.getElementById(category)
+
+    arrCategories.forEach(cat => {
+        if(selector.checked)  {
+            let  catEvents = events.filter((event) => event.category == category)
+            createCardsHome(catEvents)
+        } else {
+            createCardsHome(events)
+        }
+    })
 })
