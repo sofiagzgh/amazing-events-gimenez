@@ -143,25 +143,8 @@ section {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-}
-
-.arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-}
-
-.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-}
-
-.left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
 }
 
 h2 {
@@ -171,14 +154,17 @@ h2 {
     top: 2px;
 }
 
-.banner a.h4 {
+.banner a, .details-arrow {
     text-decoration: none;
-    transform: rotate(0deg);
+    color: var(--primary-bg-color);
+    background-color: rgba(0, 0, 0, 0.58);
+    height: 2rem;
+    width: 2rem;
+    padding: 3px;
+    text-align: center;
+    border-radius: 50%;
     cursor: pointer;
-}
-
-.banner a.h3:hover {
-    transform: rotate(359deg);
+    margin: auto;
 }
 
 .banner a[href="#"] {

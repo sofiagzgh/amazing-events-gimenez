@@ -147,6 +147,7 @@ const filterEventsByCategory = (arrayCategories, arrayEvents = events) => {
 
 const arrCategorySelected = (() => {
     let selection = []
+
     arrCategories.forEach(category => {
         let selector = document.getElementById(category)
         if (selector.checked) {
@@ -154,6 +155,7 @@ const arrCategorySelected = (() => {
         }
     })
 
+    let finalArr = []
     if (selection.length != 0) {
         createCardsHome(filterEventsByCategory(selection))
     } else {

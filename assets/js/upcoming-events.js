@@ -73,7 +73,7 @@ const createCategories = (arrayCat) => {
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}">
+                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}">
                 <span>${cat}</span>
             </label>
             `
