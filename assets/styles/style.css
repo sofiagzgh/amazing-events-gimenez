@@ -327,12 +327,17 @@ h2 {
     margin-bottom: 2rem;
 }
 
-.no-results-message img {
-    width: 25rem;
-    height: 14.57rem;
+.no-results-message .travolta-container {
     margin-bottom: 1.5rem;
-    padding: 0 5rem;
-    border-bottom: 6px solid var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.no-results-message img {
+    padding: 0 0;
+    max-width: 180.15px;
+    max-height: 175px;
+    margin: 0 4rem;
+    filter: contrast(0.5);
 }
 
 /* DETAILS */
@@ -905,6 +910,11 @@ footer>p {
         width: 65%;
     }
 
+    .no-results-message img {
+        margin: 0 1rem;
+        height: 10rem;
+    }
+
     .details-container .card img {
         width: 100%;
         transition: height 0.9s ease-in-out;
@@ -967,11 +977,6 @@ footer>p {
 
     .search-bar .search {
         padding-top: 2rem;
-    }
-
-    .no-results-message img {
-        width: 12rem;
-        padding: 0 2rem;
     }
 
     .details-container .card img:hover {

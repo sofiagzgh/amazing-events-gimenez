@@ -120,9 +120,11 @@ searchInput.addEventListener("keyup", () => {
 
     if (Object.keys(filteredCards).length === 0) {
         noResultsMessage.innerHTML = `
-        <img src="./assets/img/no-results.gif" alt="No results found">
-        <h3>We're sorry</h3>
-        <h6>but there are no results for your search "${searchInput.value}"</h6>`
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found" class="p-0">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for your search "${searchInput.value}"</h6>`
     } else {
         noResultsMessage.innerHTML = '';
     }
