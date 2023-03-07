@@ -298,7 +298,7 @@ h2 {
 
 .ue-card img {
     transition: filter 0.4s ease-in-out;
-    filter: sepia(100%) hue-rotate(288deg) saturate(350%) brightness(85%);
+    filter: sepia(100%) hue-rotate(288deg) saturate(400%) brightness(85%);
 }
 
 .ue-card:hover img {
@@ -329,6 +329,7 @@ h2 {
 
 .no-results-message img {
     width: 25rem;
+    height: 14.57rem;
     margin-bottom: 1.5rem;
     padding: 0 5rem;
     border-bottom: 6px solid var(--secondary-color);
