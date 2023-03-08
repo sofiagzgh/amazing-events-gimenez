@@ -83,7 +83,7 @@ header nav {
 
 .current-date-container {
     font-size: 0.8rem;
-    padding: 1px 20px;
+    padding: 5px 20px;
     width: 100vw;
     margin: 0;
     position: absolute;
@@ -134,6 +134,7 @@ section {
 
 .banner {
     background-color: var(--primary-bg-color);
+    padding: 3px;
     border-bottom: 1px solid black;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     color: #1f003f;
@@ -149,6 +150,8 @@ section {
 
 h2 {
     font-family: var(--special-font-family);
+    text-align: center;
+    padding: 10px;
     text-transform: uppercase;
     position: relative;
     top: 2px;
@@ -158,8 +161,8 @@ h2 {
     text-decoration: none;
     color: var(--primary-bg-color);
     background-color: rgba(0, 0, 0, 0.58);
-    height: 2rem;
-    width: 2rem;
+    min-height: 2rem;
+    min-width: 2rem;
     padding: 3px;
     text-align: center;
     border-radius: 50%;
@@ -905,6 +908,10 @@ footer>p {
         max-height: 60%;
     }
 
+    .cards-container .card-descr {
+        -webkit-line-clamp: 3;
+    }
+    
     .cards-container .card .card-footer {
         height: 25%;
         width: 65%;
@@ -928,6 +935,12 @@ footer>p {
         height: fit-content;
     }
 
+    .cards-container .card-footer  {
+        font-size: 13px;
+        padding-left: 3px;
+        padding-right: 2px;
+    }
+
     footer {
         height: 10rem;
         padding: 1rem;
@@ -945,15 +958,6 @@ footer>p {
 
 /* Landscape Phone */
 @media only screen and (max-width: 767.98px) {
-    header nav {
-        min-height: 3rem;
-    }
-
-    .navbar-brand img {
-        height: 3rem;
-        padding-left: 0;
-    }
-
     .navbar-toggler {
         height: 2.5rem;
         width: 2.5rem;
@@ -965,10 +969,6 @@ footer>p {
         position: relative;
         bottom: 3px;
         right: 3px;
-    }
-
-    main {
-        padding-top: 4.5rem;
     }
 
     .search-bar .category {
@@ -986,6 +986,15 @@ footer>p {
 
 /* Tablet */
 @media only screen and (max-width: 991.98px) {
+    header nav {
+        min-height: 65px;
+    }
+
+    .navbar-brand img {
+        height: 2rem;
+        padding-left: 0;
+    }
+
     .navbar-collapse {
         text-align: center;
     }
@@ -1006,6 +1015,14 @@ footer>p {
     nav .collapse {
         margin-top: 1rem;
     }
+    
+    main {
+        padding-top: 4rem;
+    }
+
+    .banner {
+        margin-bottom: 0.4rem;
+    }
 
     .search-bar {
         padding: 1rem 3rem;
@@ -1018,5 +1035,13 @@ footer>p {
 
     .details-container .card {
         width: 90vw;
+    }
+
+    .details-container .card-footer li {
+        font-size: 13px;
+    }
+
+    .details-container .card-footer li i {
+        padding-top: 7px;
     }
 }
