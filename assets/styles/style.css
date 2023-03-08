@@ -293,10 +293,11 @@ h2 {
     background-repeat: no-repeat;
 }
 
-.card img {
+.cards-container .card img {
     width: 100%;
     height: 10rem;
     object-fit: cover;
+    border-radius: 5px 5px 0 0;
 }
 
 .ue-card img {
@@ -358,6 +359,7 @@ h2 {
 }
 
 .details-container .card img {
+    object-fit: cover;
     height: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background: linear-gradient(0deg, #000000c9, var(--secondary-bg-color));
@@ -911,7 +913,7 @@ footer>p {
     .cards-container .card-descr {
         -webkit-line-clamp: 3;
     }
-    
+
     .cards-container .card .card-footer {
         height: 25%;
         width: 65%;
