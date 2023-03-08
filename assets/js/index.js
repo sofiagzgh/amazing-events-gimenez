@@ -94,7 +94,7 @@ const createCategories = (arrayCat) => {
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
+                <input type="checkbox" class="custom-checkbox" checked="checked" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
                 <span>${cat}</span>
             </label>
             `
@@ -114,11 +114,12 @@ const searchInput = document.getElementById('mySearch')
 const noResultsMessage = document.getElementById('no-results-message')
 
 searchInput.addEventListener("keyup", () => {
-    let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
+    let filteredCardsCategory = ultimateArr.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
 
-    createCardsHome(filteredCards)
-
-    if (Object.keys(filteredCards).length === 0) {
+    createCardsHome(filteredCardsCategory)
+    
+    // NO RESULTS MESSAGE
+    if (Object.keys(filteredCardsCategory).length === 0) {
         noResultsMessage.innerHTML = `
             <div class="travolta-container">
                 <img src="./assets/img/no-results.gif" alt="No results found" class="p-0">
@@ -134,6 +135,8 @@ searchInput.addEventListener("keyup", () => {
 
 // CATEGORY FILTER
 
+let ultimateArr = events
+
 const filterEventsByCategory = (arrayCategories, arrayEvents = events) => {
     let filteredEvents = []
     arrayCategories.forEach(categor => {
@@ -146,21 +149,36 @@ const filterEventsByCategory = (arrayCategories, arrayEvents = events) => {
     return filteredEvents
 }
 
-
 const arrCategorySelected = (() => {
+    searchInput.value = ''
     let selection = []
-
+    
     arrCategories.forEach(category => {
-        let selector = document.getElementById(category)
+        let selector = document.getElementById(category);
         if (selector.checked) {
             selection.push(category)
         }
     })
 
-    let finalArr = []
     if (selection.length != 0) {
         createCardsHome(filterEventsByCategory(selection))
     } else {
         createCardsHome(events)
+    }
+
+    let checkedForSearch = filterEventsByCategory(selection)
+    ultimateArr = checkedForSearch.map(event => event)
+
+    // NO RESULTS (CATEGORY) MESSAGE
+    if (ueContainer.innerHTML === '') {
+        noResultsMessageUE.innerHTML = `
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for the selected category/s.</h6>
+        `
+    } else {
+        noResultsMessageUE.innerHTML = '';
     }
 })

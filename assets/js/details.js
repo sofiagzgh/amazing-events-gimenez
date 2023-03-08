@@ -25,7 +25,7 @@ if (detailEvent.date >= currentDate) {
         <div class="card mb-3 col-12 col-lg-12 shadow">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="${detailEvent.image}" class="img-fluid rounded-top rounded-sm-left" alt="Details image">
+                    <img src="${detailEvent.image}" class="img-fluid" alt="Details image">
                 </div>
                 <div class="col-md-8 d-flex flex-column flex-sm-row">
                     <div class="card-body text-sm-end d-flex flex-column center flex-sm-row flex-sm-wrap align-content-sm-between justify-content-sm-end">

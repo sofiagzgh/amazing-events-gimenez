@@ -73,7 +73,7 @@ const createCategories = (arrayCat) => {
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
+                <input type="checkbox" class="custom-checkbox" checked="checked" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
                 <span>${cat}</span>
             </label>
             `
@@ -93,11 +93,11 @@ const searchInputUE = document.getElementById('my-search-ue')
 const noResultsMessageUE = document.getElementById('no-results-message-ue')
 
 searchInputUE.addEventListener("keyup", () => {
-    let filteredCardsUE = arrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.trim().toLowerCase()));
+    let filteredCardsCategoryUE = ultimateArrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.trim().toLowerCase()));
 
-    createCardsUE(filteredCardsUE)
+    createCardsUE(filteredCardsCategoryUE)
 
-    if ((Object.keys(filteredCardsUE).length === 0) || (ueContainer.innerHTML === '')) {
+    if ((Object.keys(filteredCardsCategoryUE).length === 0) || (ueContainer.innerHTML === '')) {
         noResultsMessageUE.innerHTML = `
             <div class="travolta-container">
                 <img src="./assets/img/no-results.gif" alt="No results found">
@@ -114,6 +114,8 @@ searchInputUE.addEventListener("keyup", () => {
 
 // CATEGORY FILTER
 
+let ultimateArrUE = arrUE
+
 const filterEventsByCategory = (arrayCategories, arrayEvents = arrUE) => {
     let filteredEvents = []
     arrayCategories.forEach(categor => {
@@ -128,6 +130,7 @@ const filterEventsByCategory = (arrayCategories, arrayEvents = arrUE) => {
 
 
 const arrCategorySelected = (() => {
+    searchInputUE.value = ''
     let selection = []
 
     arrCategories.forEach(category => {
@@ -137,13 +140,16 @@ const arrCategorySelected = (() => {
         }
     })
 
-    let finalArr = []
     if (selection.length != 0) {
         createCardsUE(filterEventsByCategory(selection))
     } else {
         createCardsUE(arrUE)
     }
 
+    let checkedForSearch = filterEventsByCategory(selection)
+    ultimateArrUE = checkedForSearch.map(event => event)
+
+    // NO RESULTS (CATEGORY) MESSAGE
     if (ueContainer.innerHTML === '') {
         noResultsMessageUE.innerHTML = `
             <div class="travolta-container">

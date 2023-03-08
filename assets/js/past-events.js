@@ -76,7 +76,7 @@ const createCategories = (arrayCat) => {
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
+                <input type="checkbox" class="custom-checkbox" checked="checked" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
                 <span>${cat}</span>
             </label>
             `
@@ -96,11 +96,12 @@ const searchInputPE = document.getElementById('my-search-pe')
 const noResultsMessagePE = document.getElementById('no-results-message-pe')
 
 searchInputPE.addEventListener("keyup", () => {
-    let filteredCardsPE = arrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.trim().toLowerCase()))
+    let filteredCardsCategoryPE = ultimateArrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.trim().toLowerCase()))
 
-    createCardsPE(filteredCardsPE)
+    createCardsPE(filteredCardsCategoryPE)
 
-    if (Object.keys(filteredCardsPE).length === 0) {
+    // NO RESULTS MESSAGE
+    if (Object.keys(filteredCardsCategoryPE).length === 0) {
         noResultsMessagePE.innerHTML = `
             <div class="travolta-container">
                 <img src="./assets/img/no-results.gif" alt="No results found">
@@ -116,6 +117,8 @@ searchInputPE.addEventListener("keyup", () => {
 
 // CATEGORY FILTER
 
+let ultimateArrPE = arrPE
+
 const filterEventsByCategory = (arrayCategories, arrayEvents = arrPE) => {
     let filteredEvents = []
     arrayCategories.forEach(categor => {
@@ -130,6 +133,7 @@ const filterEventsByCategory = (arrayCategories, arrayEvents = arrPE) => {
 
 
 const arrCategorySelected = (() => {
+    searchInputPE.value = ''
     let selection = []
 
     arrCategories.forEach(category => {
@@ -139,13 +143,16 @@ const arrCategorySelected = (() => {
         }
     })
 
-    let finalArr = []
     if (selection.length != 0) {
         createCardsPE(filterEventsByCategory(selection))
     } else {
         createCardsPE(arrPE)
     }
 
+    let checkedForSearch = filterEventsByCategory(selection)
+    ultimateArrPE = checkedForSearch.map(event => event)
+
+    // NO RESULTS (CATEGORY) MESSAGE
     if (ueContainer.innerHTML === '') {
         noResultsMessageUE.innerHTML = `
             <div class="travolta-container">

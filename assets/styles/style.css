@@ -157,7 +157,8 @@ h2 {
     top: 2px;
 }
 
-.banner a, .details-arrow {
+.banner a,
+.details-arrow {
     text-decoration: none;
     color: var(--primary-bg-color);
     background-color: rgba(0, 0, 0, 0.58);
@@ -363,6 +364,7 @@ h2 {
     height: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background: linear-gradient(0deg, #000000c9, var(--secondary-bg-color));
+    border-radius: 5px 0 0 5px;
 }
 
 .details-container .card img:hover {
@@ -926,18 +928,14 @@ footer>p {
 
     .details-container .card img {
         width: 100%;
-        transition: height 0.9s ease-in-out;
-
-        transition-delay: 0.5s;
         height: 10rem;
     }
 
     .details-container .card img:hover {
-        width: 100%;
-        height: fit-content;
+        object-fit: contain;
     }
 
-    .cards-container .card-footer  {
+    .cards-container .card-footer {
         font-size: 13px;
         padding-left: 3px;
         padding-right: 2px;
@@ -981,8 +979,18 @@ footer>p {
         padding-top: 2rem;
     }
 
+    .details-container .card img {
+        width: 100%;
+        height: 13rem;
+        border-radius: 5px 5px 0 0;
+    }
+
     .details-container .card img:hover {
-        object-fit: cover;
+        object-fit: contain;
+    }
+
+    .details-container .card-footer li  {
+        height: 2rem;
     }
 }
 
@@ -1017,7 +1025,7 @@ footer>p {
     nav .collapse {
         margin-top: 1rem;
     }
-    
+
     main {
         padding-top: 4rem;
     }
