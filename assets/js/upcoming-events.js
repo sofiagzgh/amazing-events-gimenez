@@ -10,21 +10,6 @@ currentDateContainer.innerHTML = currentDateElement;
 
 const ueContainer = document.getElementById('ue-container');
 
-// sort data by name (in ascending order)
-events.sort((a, b) => {
-    const nameA = a.name.toUpperCase();
-    const nameB = b.name.toUpperCase();
-
-    if (nameA < nameB) {
-        return -1;
-    }
-    if (nameA > nameB) {
-        return 1;
-    }
-
-    return 0;
-});
-
 const filterEventsUE = (arrayData) => {
     let ue = arrayData.filter(event => event.date >= currentDate);
     return ue;
