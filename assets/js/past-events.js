@@ -76,7 +76,7 @@ const createCategories = (arrayCat) => {
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}">
+                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
                 <span>${cat}</span>
             </label>
             `
@@ -109,5 +109,52 @@ searchInputPE.addEventListener("keyup", () => {
             <h6>but there are no results for your search "${searchInputPE.value}"</h6>`
     } else {
         noResultsMessagePE.innerHTML = '';
+    }
+})
+
+
+
+// CATEGORY FILTER
+
+const filterEventsByCategory = (arrayCategories, arrayEvents = arrPE) => {
+    let filteredEvents = []
+    arrayCategories.forEach(categor => {
+        arrayEvents.forEach(event => {
+            if (event.category == categor) {
+                filteredEvents.push(event)
+            }
+        })
+    })
+    return filteredEvents
+}
+
+
+const arrCategorySelected = (() => {
+    let selection = []
+
+    arrCategories.forEach(category => {
+        let selector = document.getElementById(category)
+        if (selector.checked) {
+            selection.push(category)
+        }
+    })
+
+    let finalArr = []
+    if (selection.length != 0) {
+        createCardsPE(filterEventsByCategory(selection))
+    } else {
+        createCardsPE(arrPE)
+    }
+
+    if (ueContainer.innerHTML === '') {
+        noResultsMessageUE.innerHTML = `
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for the selected category/s.</h6>
+        `
+    } else {
+        noResultsMessageUE.innerHTML = '';
     }
 })

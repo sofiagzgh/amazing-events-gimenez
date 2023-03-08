@@ -20,7 +20,7 @@ const createCardsUE = (arrayData) => {
     let cards = '';
 
     arrayData.forEach((event) => {
-            cards += `
+        cards += `
                 <div class="col">
                     <div class="card ue-card h-100 text-bg-light">
                         <img src="${event.image}" class="card-img-top" alt="${event.name}">
@@ -73,7 +73,7 @@ const createCategories = (arrayCat) => {
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}">
+                <input type="checkbox" class="custom-checkbox" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
                 <span>${cat}</span>
             </label>
             `
@@ -96,14 +96,61 @@ searchInputUE.addEventListener("keyup", () => {
     let filteredCardsUE = arrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.trim().toLowerCase()));
 
     createCardsUE(filteredCardsUE)
-    
-    if (Object.keys(filteredCardsUE).length === 0) {
+
+    if ((Object.keys(filteredCardsUE).length === 0) || (ueContainer.innerHTML === '')) {
         noResultsMessageUE.innerHTML = `
             <div class="travolta-container">
                 <img src="./assets/img/no-results.gif" alt="No results found">
             </div>
             <h3>We're sorry</h3>
             <h6>but there are no results for your search "${searchInputUE.value}"</h6>
+        `
+    } else {
+        noResultsMessageUE.innerHTML = '';
+    }
+})
+
+
+
+// CATEGORY FILTER
+
+const filterEventsByCategory = (arrayCategories, arrayEvents = arrUE) => {
+    let filteredEvents = []
+    arrayCategories.forEach(categor => {
+        arrayEvents.forEach(event => {
+            if (event.category == categor) {
+                filteredEvents.push(event)
+            }
+        })
+    })
+    return filteredEvents
+}
+
+
+const arrCategorySelected = (() => {
+    let selection = []
+
+    arrCategories.forEach(category => {
+        let selector = document.getElementById(category)
+        if (selector.checked) {
+            selection.push(category)
+        }
+    })
+
+    let finalArr = []
+    if (selection.length != 0) {
+        createCardsUE(filterEventsByCategory(selection))
+    } else {
+        createCardsUE(arrUE)
+    }
+
+    if (ueContainer.innerHTML === '') {
+        noResultsMessageUE.innerHTML = `
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for the selected category/s.</h6>
         `
     } else {
         noResultsMessageUE.innerHTML = '';
