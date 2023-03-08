@@ -143,7 +143,7 @@ const arrCategorySelected = (() => {
     if (selection.length != 0) {
         createCardsUE(filterEventsByCategory(selection))
     } else {
-        createCardsUE(arrUE)
+        ueContainer.innerHTML = ''
     }
 
     let checkedForSearch = filterEventsByCategory(selection)

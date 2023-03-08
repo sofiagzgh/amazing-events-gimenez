@@ -163,15 +163,15 @@ const arrCategorySelected = (() => {
     if (selection.length != 0) {
         createCardsHome(filterEventsByCategory(selection))
     } else {
-        createCardsHome(events)
+        indexContainer.innerHTML = ''
     }
 
     let checkedForSearch = filterEventsByCategory(selection)
     ultimateArr = checkedForSearch.map(event => event)
 
     // NO RESULTS (CATEGORY) MESSAGE
-    if (ueContainer.innerHTML === '') {
-        noResultsMessageUE.innerHTML = `
+    if (indexContainer.innerHTML === '') {
+        noResultsMessage.innerHTML = `
             <div class="travolta-container">
                 <img src="./assets/img/no-results.gif" alt="No results found">
             </div>
@@ -179,6 +179,6 @@ const arrCategorySelected = (() => {
             <h6>but there are no results for the selected category/s.</h6>
         `
     } else {
-        noResultsMessageUE.innerHTML = '';
+        noResultsMessage.innerHTML = '';
     }
 })
