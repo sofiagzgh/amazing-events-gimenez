@@ -6,7 +6,7 @@ currentDateContainer.innerHTML = currentDateElement;
 
 
 
-// CARDS
+// HOME CARDS
 
 const indexContainer = document.getElementById('home-container');
 
@@ -108,31 +108,6 @@ createCategories(arrCategories);
 
 
 
-// SEARCH
-
-const searchInput = document.getElementById('mySearch')
-const noResultsMessage = document.getElementById('no-results-message')
-
-searchInput.addEventListener("keyup", () => {
-    let filteredCardsCategory = ultimateArr.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
-
-    createCardsHome(filteredCardsCategory)
-    
-    // NO RESULTS MESSAGE
-    if (Object.keys(filteredCardsCategory).length === 0) {
-        noResultsMessage.innerHTML = `
-            <div class="travolta-container">
-                <img src="./assets/img/no-results.gif" alt="No results found" class="p-0">
-            </div>
-            <h3>We're sorry</h3>
-            <h6>but there are no results for your search "${searchInput.value}"</h6>`
-    } else {
-        noResultsMessage.innerHTML = '';
-    }
-})
-
-
-
 // CATEGORY FILTER
 
 let ultimateArr = events
@@ -182,3 +157,29 @@ const arrCategorySelected = (() => {
         noResultsMessage.innerHTML = '';
     }
 })
+
+
+
+// SEARCH FILTER
+
+const searchInput = document.getElementById('mySearch')
+const noResultsMessage = document.getElementById('no-results-message')
+
+searchInput.addEventListener("keyup", () => {
+    let filteredCardsCategory = ultimateArr.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
+
+    createCardsHome(filteredCardsCategory)
+    
+    // NO RESULTS MESSAGE
+    if (Object.keys(filteredCardsCategory).length === 0) {
+        noResultsMessage.innerHTML = `
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found" class="p-0">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for your search "${searchInput.value}"</h6>`
+    } else {
+        noResultsMessage.innerHTML = '';
+    }
+})
+

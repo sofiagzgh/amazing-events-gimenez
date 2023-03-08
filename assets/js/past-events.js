@@ -6,7 +6,7 @@ currentDateContainer.innerHTML = currentDateElement;
 
 
 
-// CARDS
+// PE CARDS
 
 const peContainer = document.getElementById('past-container');
 
@@ -90,31 +90,6 @@ createCategories(arrCategories);
 
 
 
-// SEARCH
-
-const searchInputPE = document.getElementById('my-search-pe')
-const noResultsMessagePE = document.getElementById('no-results-message-pe')
-
-searchInputPE.addEventListener("keyup", () => {
-    let filteredCardsCategoryPE = ultimateArrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.trim().toLowerCase()))
-
-    createCardsPE(filteredCardsCategoryPE)
-
-    // NO RESULTS MESSAGE
-    if (Object.keys(filteredCardsCategoryPE).length === 0) {
-        noResultsMessagePE.innerHTML = `
-            <div class="travolta-container">
-                <img src="./assets/img/no-results.gif" alt="No results found">
-            </div>
-            <h3>We're sorry</h3>
-            <h6>but there are no results for your search "${searchInputPE.value}"</h6>`
-    } else {
-        noResultsMessagePE.innerHTML = '';
-    }
-})
-
-
-
 // CATEGORY FILTER
 
 let ultimateArrPE = arrPE
@@ -161,6 +136,31 @@ const arrCategorySelected = (() => {
             <h3>We're sorry</h3>
             <h6>but there are no results for the selected category/s.</h6>
         `
+    } else {
+        noResultsMessagePE.innerHTML = '';
+    }
+})
+
+
+
+// SEARCH FILTER
+
+const searchInputPE = document.getElementById('my-search-pe')
+const noResultsMessagePE = document.getElementById('no-results-message-pe')
+
+searchInputPE.addEventListener("keyup", () => {
+    let filteredCardsCategoryPE = ultimateArrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.trim().toLowerCase()))
+
+    createCardsPE(filteredCardsCategoryPE)
+
+    // NO RESULTS MESSAGE
+    if (Object.keys(filteredCardsCategoryPE).length === 0) {
+        noResultsMessagePE.innerHTML = `
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for your search "${searchInputPE.value}"</h6>`
     } else {
         noResultsMessagePE.innerHTML = '';
     }

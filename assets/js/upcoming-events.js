@@ -6,7 +6,7 @@ currentDateContainer.innerHTML = currentDateElement;
 
 
 
-// CARDS
+// UE CARDS
 
 const ueContainer = document.getElementById('ue-container');
 
@@ -87,31 +87,6 @@ createCategories(arrCategories);
 
 
 
-// SEARCH
-
-const searchInputUE = document.getElementById('my-search-ue')
-const noResultsMessageUE = document.getElementById('no-results-message-ue')
-
-searchInputUE.addEventListener("keyup", () => {
-    let filteredCardsCategoryUE = ultimateArrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.trim().toLowerCase()));
-
-    createCardsUE(filteredCardsCategoryUE)
-
-    if ((Object.keys(filteredCardsCategoryUE).length === 0) || (ueContainer.innerHTML === '')) {
-        noResultsMessageUE.innerHTML = `
-            <div class="travolta-container">
-                <img src="./assets/img/no-results.gif" alt="No results found">
-            </div>
-            <h3>We're sorry</h3>
-            <h6>but there are no results for your search "${searchInputUE.value}"</h6>
-        `
-    } else {
-        noResultsMessageUE.innerHTML = '';
-    }
-})
-
-
-
 // CATEGORY FILTER
 
 let ultimateArrUE = arrUE
@@ -157,6 +132,31 @@ const arrCategorySelected = (() => {
             </div>
             <h3>We're sorry</h3>
             <h6>but there are no results for the selected category/s.</h6>
+        `
+    } else {
+        noResultsMessageUE.innerHTML = '';
+    }
+})
+
+
+
+// SEARCH FILTER
+
+const searchInputUE = document.getElementById('my-search-ue')
+const noResultsMessageUE = document.getElementById('no-results-message-ue')
+
+searchInputUE.addEventListener("keyup", () => {
+    let filteredCardsCategoryUE = ultimateArrUE.filter((event) => event.name.toLowerCase().includes(searchInputUE.value.trim().toLowerCase()));
+
+    createCardsUE(filteredCardsCategoryUE)
+
+    if ((Object.keys(filteredCardsCategoryUE).length === 0) || (ueContainer.innerHTML === '')) {
+        noResultsMessageUE.innerHTML = `
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for your search "${searchInputUE.value}"</h6>
         `
     } else {
         noResultsMessageUE.innerHTML = '';
