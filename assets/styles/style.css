@@ -891,7 +891,7 @@ footer>p {
     }
 
     .cards-container>.row>.col {
-        height: 17.7rem;
+        min-height: 10rem;
     }
 
     .cards-container .card {
@@ -909,11 +909,15 @@ footer>p {
 
     .cards-container .card .card-body {
         width: 65%;
-        max-height: 60%;
+    }
+
+    .cards-container .card .card-body h5 {
+        padding-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .cards-container .card-descr {
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: inherit;
     }
 
     .cards-container .card .card-footer {

@@ -60,7 +60,7 @@ if (detailEvent.date >= currentDate) {
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-people-fill"></i>
-                                <span>Assistance:&nbsp;</span>${detailEvent.assistance || detailEvent.estimate}
+                                <span>Estimate:&nbsp;</span>${detailEvent.estimate}
                             </li>
                         </ul>
                     </div>
@@ -110,7 +110,7 @@ if (detailEvent.date >= currentDate) {
                             </li>
                             <li class="list-group-item rounded-pill d-flex align-items-center">
                                 <i class="bi bi-people-fill"></i>
-                                <span>Assistance:&nbsp;</span>${detailEvent.assistance || detailEvent.estimate}
+                                <span>Assistance:&nbsp;</span>${detailEvent.assistance}
                             </li>
                         </ul>
                     </div>
