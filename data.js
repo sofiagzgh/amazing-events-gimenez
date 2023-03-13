@@ -1,3 +1,19 @@
+// let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+
+// async function bringData() {
+//     try {
+//         const response = await fetch(urlApi)
+//         const data = await response.json();
+//         console.log(data);
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// bringData();
+// console.log(data);
+
 const currentDate = "2022-09-01";
 const events = [
     {

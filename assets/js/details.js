@@ -80,8 +80,8 @@ if (detailEvent.date >= currentDate) {
                 <div class="col-md-8 d-flex flex-column flex-sm-row">
                     <div class="card-body text-sm-end d-flex flex-column center flex-sm-row flex-sm-wrap align-content-sm-between justify-content-sm-end">
                         <div>
-                            <h5 class="card-title p-3">${detailEvent.name}</h5>
-                            <p class="card-text p-1">${detailEvent.description}</p>
+                            <h5 class="card-title p-2">${detailEvent.name}</h5>
+                            <p class="card-text p-2">${detailEvent.description}</p>
                         </div>
                         <button class="back-btn mb-2 mt-4" onclick="history.back()"><span>↺</span> Go Back </button>
                     </div>
