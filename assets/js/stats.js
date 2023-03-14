@@ -170,7 +170,11 @@ const createCategoryTable = (arrayData, time) => {
                         <tr>
                             <td>${event.category}</td>
                             <td class="text-success">$ ${event.revenues}</td>
-                            <td>${event.percentage.toFixed(2)} %</td>
+                            <td>
+                                <div class="progress" role="progressbar" aria-valuenow="${event.percentage.toFixed(0)}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar bg-dark bg-gradient" style="width: ${event.percentage.toFixed(0)}%">${event.percentage.toFixed(2)} %</div>
+                                </div>
+                            </td>
                         </tr>
         `
     })
