@@ -9,10 +9,19 @@ async function bringData() {
         const currentDateElement = new Date(data.currentDate + "T00:00:00.000-05:00").toDateString();
         currentDateContainer.innerHTML = currentDateElement;
 
-        let test0 = filterEventsPE(data)
-        let test1 = filterEventsInfo(test0)
-        let test2 = sortEventsByPercentage(test1)
-        let test = createTop3Events(test2)
+        let arrPE = filterEvents(data,"past")
+        let arrPE0 = filterEventsInfo1(arrPE)
+        let PESorted = sortEventsByPercentage(arrPE0)
+        createTop3Events(PESorted)
+
+        let arrUE = filterEvents(data,"upcoming")
+        let arrUE1 = filterEventsInfo2(arrUE)
+        let UEGrouped = groupEventsByCategory(arrUE1)
+        createCategoryTable(UEGrouped,"upcoming")
+
+        let arrPE1 = filterEventsInfo2(arrPE)
+        let PEGrouped = groupEventsByCategory(arrPE1)
+        createCategoryTable(PEGrouped,"past")
     }
     catch (error) {
         console.log(error);
@@ -21,12 +30,22 @@ async function bringData() {
 
 bringData();
 
-const filterEventsPE = (arrayData) => {
-    let pe = arrayData.events.filter(event => event.date < arrayData.currentDate);
-    return pe;
+
+
+// TOP 3 STATISTICS
+
+const filterEvents = (arrayData, time) => {
+    let filteredArr = []
+    if (time == "past") {
+        filteredArr = arrayData.events.filter(event => event.date < arrayData.currentDate);
+    } else if (time == "upcoming") {
+        filteredArr = arrayData.events.filter(event => event.date >= arrayData.currentDate);
+    }
+
+    return filteredArr
 }
 
-const filterEventsInfo = (arrayData) => {
+const filterEventsInfo1 = (arrayData) => {
     let results = []
 
     arrayData.forEach(event => {
@@ -71,7 +90,7 @@ const createTop3Events = (arrayData) => {
     for (let i = 0; i < 3; i++) {
         laRows[i].innerHTML = `
                             <a href="./details.html?id=${arrayData[i].id}">${arrayData[i].name} </a>
-                            <span>(${(arrayData[i].percentage).toFixed(2)}%)</span>
+                            <span>(${arrayData[i].percentage.toFixed(2)}%)</span>
                             `
     }
 
@@ -82,4 +101,77 @@ const createTop3Events = (arrayData) => {
                             <span>(${byC[i].capacity} people)</span>
                             `
     }
+}
+
+
+// STATISTICS BY CATEGORY
+
+const filterEventsInfo2 = (arrayData) => {
+    let results = []
+
+    arrayData.forEach(event => {
+        let result = {};
+        result.category = event.category
+        result.revenues = (event.price * event.estimate) || (event.price * event.assistance)
+        result.percentage = (100 * event.estimate) / event.capacity || (100 * event.assistance) / event.capacity;
+        results.push(result)
+    });
+
+    return results
+}
+
+const groupEventsByCategory = (arrayData) => {
+    let categoriesUnique = []
+
+    arrayData.forEach(event => {
+        if (!categoriesUnique.includes(event.category)) {
+            categoriesUnique.push(event.category);
+        }
+    })
+
+    categoriesUnique.sort()
+
+    let grouped = []
+    categoriesUnique.forEach(categor => {
+        let cat = {}
+        cat.category = ''
+        cat.revenues = 0
+        cat.percentage = 0
+        cat.events = 0
+
+        arrayData.forEach(event => {
+            if (event.category == categor) {
+                cat.category = categor
+                cat.revenues += event.revenues
+                cat.percentage += event.percentage
+                cat.events ++
+            }
+        })
+
+        cat.percentage = cat.percentage/cat.events
+        grouped.push(cat)
+    })
+
+    return grouped
+}
+
+const createCategoryTable = (arrayData, time) => {
+    let id = ''
+
+    if (time == "upcoming") {
+        id = "ue-by-category-container"
+    } else if (time == "past") {
+        id = "pe-by-category-container"
+    }
+    const table = document.getElementById(id)
+
+    arrayData.forEach(event => {
+        table.innerHTML += `
+                        <tr>
+                            <td>${event.category}</td>
+                            <td class="text-success">$ ${event.revenues}</td>
+                            <td>${event.percentage.toFixed(2)} %</td>
+                        </tr>
+        `
+    })
 }
