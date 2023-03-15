@@ -1,10 +1,20 @@
-// CURRENT DATE
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
-const currentDateContainer = document.getElementById('current-date-p');
-const currentDateElement = new Date(currentDate + "T00:00:00.000-05:00").toDateString();
-currentDateContainer.innerHTML = currentDateElement;
+async function bringData() {
+    try {
+        const response = await fetch(urlApi)
+        const data = await response.json();
 
+        const currentDateContainer = document.getElementById('current-date-p');
+        const currentDateElement = new Date(data.currentDate + "T00:00:00.000-05:00").toDateString();
+        currentDateContainer.innerHTML = currentDateElement;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 
+bringData();
 
 // UE CARDS
 

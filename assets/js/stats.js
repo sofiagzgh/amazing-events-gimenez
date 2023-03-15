@@ -9,19 +9,19 @@ async function bringData() {
         const currentDateElement = new Date(data.currentDate + "T00:00:00.000-05:00").toDateString();
         currentDateContainer.innerHTML = currentDateElement;
 
-        let arrPE = filterEvents(data,"past")
+        let arrPE = filterEvents(data, "past")
         let arrPE0 = filterEventsInfo1(arrPE)
         let PESorted = sortEventsByPercentage(arrPE0)
         createTop3Events(PESorted)
 
-        let arrUE = filterEvents(data,"upcoming")
+        let arrUE = filterEvents(data, "upcoming")
         let arrUE1 = filterEventsInfo2(arrUE)
         let UEGrouped = groupEventsByCategory(arrUE1)
-        createCategoryTable(UEGrouped,"upcoming")
+        createCategoryTable(UEGrouped, "upcoming")
 
         let arrPE1 = filterEventsInfo2(arrPE)
         let PEGrouped = groupEventsByCategory(arrPE1)
-        createCategoryTable(PEGrouped,"past")
+        createCategoryTable(PEGrouped, "past")
     }
     catch (error) {
         console.log(error);
@@ -45,6 +45,7 @@ const filterEvents = (arrayData, time) => {
     return filteredArr
 }
 
+
 const filterEventsInfo1 = (arrayData) => {
     let results = []
 
@@ -60,6 +61,7 @@ const filterEventsInfo1 = (arrayData) => {
     return results
 }
 
+
 const sortEventsByPercentage = (arrayData) => {
     let sortedEvents = arrayData.sort(
         (e1, e2) => (e1.percentage < e2.percentage) ? 1 : (e1.percentage > e2.percentage) ? -1 : 0);
@@ -67,12 +69,14 @@ const sortEventsByPercentage = (arrayData) => {
     return sortedEvents
 }
 
+
 const sortEventsByCapacity = (arrayData) => {
     let sortedEvents = arrayData.sort(
         (e1, e2) => (e1.capacity < e2.capacity) ? 1 : (e1.capacity > e2.capacity) ? -1 : 0);
 
     return sortedEvents
 }
+
 
 const createTop3Events = (arrayData) => {
     const haRows = document.querySelectorAll(".highest-assistance")
@@ -104,6 +108,7 @@ const createTop3Events = (arrayData) => {
 }
 
 
+
 // STATISTICS BY CATEGORY
 
 const filterEventsInfo2 = (arrayData) => {
@@ -119,6 +124,7 @@ const filterEventsInfo2 = (arrayData) => {
 
     return results
 }
+
 
 const groupEventsByCategory = (arrayData) => {
     let categoriesUnique = []
@@ -144,16 +150,17 @@ const groupEventsByCategory = (arrayData) => {
                 cat.category = categor
                 cat.revenues += event.revenues
                 cat.percentage += event.percentage
-                cat.events ++
+                cat.events++
             }
         })
 
-        cat.percentage = cat.percentage/cat.events
+        cat.percentage = cat.percentage / cat.events
         grouped.push(cat)
     })
 
     return grouped
 }
+
 
 const createCategoryTable = (arrayData, time) => {
     let id = ''
@@ -172,10 +179,10 @@ const createCategoryTable = (arrayData, time) => {
                             <td class="text-success">$ ${event.revenues}</td>
                             <td>
                                 <div class="progress" role="progressbar" aria-valuenow="${event.percentage.toFixed(0)}" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar bg-dark bg-gradient" style="width: ${event.percentage.toFixed(0)}%">${event.percentage.toFixed(2)} %</div>
+                                    <div class="progress-bar" style="width: ${event.percentage.toFixed(0)}%">${event.percentage.toFixed(0)}%</div>
                                 </div>
                             </td>
                         </tr>
-        `
+                        `
     })
 }
