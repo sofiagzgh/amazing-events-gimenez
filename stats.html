@@ -13,7 +13,7 @@
     <title>Stats - Amazing Events</title>
 </head>
 
-<body>
+<body id="stats-body">
     <header>
         <nav class="navbar fixed-top navbar-expand-lg bg-dark" data-bs-theme="dark">
             <div class="container-fluid">
@@ -52,7 +52,7 @@
 
     <main>
         <section>
-
+            <div id="stats-bg-img"></div>
             <div class="banner">
                 <a href="contact.html">❮</a>
                 <h2>Stats</h2>
@@ -60,18 +60,17 @@
             </div>
 
             <div class="container stats-container">
-                <table class="table table-borderless caption-top table-sm align-middle mb-5 table-hover stats-table">
-                    <caption>
-                        <h3>Event Statistics</h3>
-                    </caption>
+                    <h3 id="top-3-title">Event Statistics</h3>
+                <div class="stats-table-container">
+                <table class="table table-borderless text-warning caption-top table-sm align-middle table-hover stats-table">
                     <thead>
                         <tr>
                             <th scope="col" class="p-2">#</th>
-                            <th scope="col" class="p-2 text-success-emphasis">Events with the highest percentage of
+                            <th scope="col" class="p-2 text-success">Events with the highest percentage of
                                 attendance:</th>
-                            <th scope="col" class="p-2 text-danger-emphasis">Events with the lowest percentage of
+                            <th scope="col" class="p-2 text-danger">Events with the lowest percentage of
                                 attendance:</th>
-                            <th scope="col" class="p-2 text-warning-emphasis">Events with larger capacity:</th>
+                            <th scope="col" class="p-2 text-info">Events with larger capacity:</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -95,17 +94,18 @@
                         </tr>
                     </tbody>
                 </table>
-
-                <table
-                    class="table table-primary table-striped table-hover table-bordered border-info caption-top shadow">
+            </div>
+                <div class="row column-gap-5 px-3">
+                    <table
+                    class="col table table-light table-striped table-hover table-bordered border-info caption-top shadow">
                     <caption>
                         <h3>Upcoming events statistics by category</h3>
                     </caption>
                     <thead>
                         <tr>
-                            <th scope="col" class="col-5">Categories</th>
+                            <th scope="col" class="col-3">Categories</th>
                             <th scope="col" class="col-4">Revenues</th>
-                            <th scope="col" class="col-3">Percentage of attendance</th>
+                            <th scope="col" class="col-5">Percentage of attendance</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle" id="ue-by-category-container">
@@ -114,21 +114,22 @@
                 </table>
 
                 <table
-                    class="table table-danger table-striped table-hover table-bordered border-light caption-top shadow">
+                    class="col table table-danger table-striped table-hover table-bordered border-light caption-top shadow">
                     <caption>
                         <h3>Past events statistics by category</h3>
                     </caption>
                     <thead>
                         <tr>
-                            <th scope="col" class="col-5">Categories</th>
+                            <th scope="col" class="col-3">Categories</th>
                             <th scope="col" class="col-4">Revenues</th>
-                            <th scope="col" class="col-3">Percentage of attendance</th>
+                            <th scope="col" class="col-5">Percentage of attendance</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider align-middle" id="pe-by-category-container">
                         <!-- STATISTICS HERE -->
                     </tbody>
                 </table>
+                </div>
             </div>
 
 

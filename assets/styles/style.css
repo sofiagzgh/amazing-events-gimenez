@@ -477,36 +477,85 @@ h2 {
 }
 
 /* STATS */
+#stats-bg-img {
+    background: #eee;
+    background-image: repeating-linear-gradient(to bottom,
+            transparent 7px,
+            #ccc 9px,
+            #cccccc8f 13px,
+            transparent 13px);
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -10;
+}
+
 .stats-container a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.731);
+}
+
+.stats-container tbody tr:hover th {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px white;
 }
 
 .stats-container span {
     color: var(--secondary-color);
 }
 
-.stats-container table caption h3 {
-    font-weight: 800;
-    color: var(--secondary-color);
-    padding-top: 1.5rem;
+.stats-container h3 {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.671);
+    padding-bottom: 1rem;
+    margin: 2rem 0rem;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--secondary-color) 50%, rgba(255, 255, 255, 0) 100%);
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    text-shadow: 0 0 10px white;
 }
 
-.stats-table tbody tr td, .current-date-container p {
+#top-3-title {
+    font-weight: 900;
+    font-size: 2rem;
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    color: var(--secondary-color);
+ }
+
+.stats-table-container {
+    padding: 10px;
+    border: double 4px transparent;
+    border-radius: 50px;
+    background-image: linear-gradient(#000000, rgba(0, 0, 0, 0.5)), var(--rainbow-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin-bottom: 3rem;
+}
+
+.stats-table tbody tr td,
+.current-date-container p {
     -webkit-animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.3s both;
     animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.3s both;
 }
 
 .stats-table tbody tr td:nth-child(2) a {
-    text-shadow: -1px 2px 5px rgba(98, 255, 33, 0.5);
+    text-shadow: -1px 2px 5px rgb(100, 255, 33);
 }
 
 .stats-table tbody tr td:nth-child(3) a {
-    text-shadow: -1px 2px 5px rgba(255, 33, 33, 0.5);
+    text-shadow: -1px 2px 5px rgb(255, 0, 0);
 }
 
 .stats-table tbody tr td:nth-child(4) a {
-    text-shadow: -1px 2px 5px rgba(240, 255, 33, 0.5);
+    text-shadow: -1px 2px 5px rgb(25, 212, 206);
 }
 
 .stats-container div.progress {
@@ -1074,6 +1123,10 @@ footer>p {
 
     .search-bar .category {
         width: 60%;
+    }
+
+    .details-container {
+        padding-top: 1.5rem;
     }
 
     .details-container .card {
