@@ -8,6 +8,17 @@ async function bringData() {
         const currentDateContainer = document.getElementById('current-date-p');
         const currentDateElement = new Date(data.currentDate + "T00:00:00.000-05:00").toDateString();
         currentDateContainer.innerHTML = currentDateElement;
+
+        const arrPE = filterEventsPE(data);
+        createCardsPE(arrPE);
+
+        const arrCategories = filterCategories(data.events);
+        createCategories(arrCategories)
+        console.log(arrPE);
+        console.log(arrCategories);
+
+        arrCategorySelected(arrCategories, arrPE)
+
     }
     catch (error) {
         console.log(error);
@@ -18,14 +29,13 @@ bringData();
 
 // PE CARDS
 
-const peContainer = document.getElementById('past-container');
-
 const filterEventsPE = (arrayData) => {
-    let pe = arrayData.filter(event => event.date < currentDate);
+    let pe = arrayData.events.filter(event => event.date < arrayData.currentDate);
     return pe;
 }
 
 const createCardsPE = (arrayData) => {
+    const peContainer = document.getElementById('past-container');
     let cards = '';
 
     arrayData.forEach((event) => {
@@ -59,14 +69,9 @@ const createCardsPE = (arrayData) => {
     peContainer.innerHTML = cards
 }
 
-const arrPE = filterEventsPE(events);
-createCardsPE(arrPE);
-
 
 
 // CATEGORIES
-
-const categoryContainer = document.getElementById('category-container');
 
 const filterCategories = (arrayData) => {
     let categoriesUnique = [];
@@ -81,12 +86,13 @@ const filterCategories = (arrayData) => {
 }
 
 const createCategories = (arrayCat) => {
+    const categoryContainer = document.getElementById('category-container');
     let categories = '';
 
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" checked="checked" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
+                <input type="checkbox" class="custom-checkbox" checked="checked" name="category" value="${cat}" id="${cat}">
                 <span>${cat}</span>
             </label>
             `
@@ -95,16 +101,9 @@ const createCategories = (arrayCat) => {
     categoryContainer.innerHTML = categories
 }
 
-const arrCategories = filterCategories(events);
-createCategories(arrCategories);
-
-
 
 // CATEGORY FILTER
-
-let ultimateArrPE = arrPE
-
-const filterEventsByCategory = (arrayCategories, arrayEvents = arrPE) => {
+const filterEventsByCategory = (arrayCategories, arrayEvents) => {
     let filteredEvents = []
     arrayCategories.forEach(categor => {
         arrayEvents.forEach(event => {
@@ -117,11 +116,15 @@ const filterEventsByCategory = (arrayCategories, arrayEvents = arrPE) => {
 }
 
 
-const arrCategorySelected = (() => {
-    searchInputPE.value = ''
+const arrCategorySelected = ((array, arrPE) => {
+    const noResultsMessagePE = document.getElementById('no-results-message-pe')
+    const peContainer = document.getElementById('past-container');
     let selection = []
 
-    arrCategories.forEach(category => {
+    console.log("hola");
+    console.log(array);
+
+    array.forEach(category => {
         let selector = document.getElementById(category)
         if (selector.checked) {
             selection.push(category)
@@ -129,12 +132,12 @@ const arrCategorySelected = (() => {
     })
 
     if (selection.length != 0) {
-        createCardsPE(filterEventsByCategory(selection))
+        createCardsPE(filterEventsByCategory(selection, arrPE))
     } else {
         peContainer.innerHTML = ''
     }
 
-    let checkedForSearch = filterEventsByCategory(selection)
+    let checkedForSearch = filterEventsByCategory(selection, arrPE)
     ultimateArrPE = checkedForSearch.map(event => event)
 
     // NO RESULTS (CATEGORY) MESSAGE
@@ -152,26 +155,3 @@ const arrCategorySelected = (() => {
 })
 
 
-
-// SEARCH FILTER
-
-const searchInputPE = document.getElementById('my-search-pe')
-const noResultsMessagePE = document.getElementById('no-results-message-pe')
-
-searchInputPE.addEventListener("keyup", () => {
-    let filteredCardsCategoryPE = ultimateArrPE.filter((event) => event.name.toLowerCase().includes(searchInputPE.value.trim().toLowerCase()))
-
-    createCardsPE(filteredCardsCategoryPE)
-
-    // NO RESULTS MESSAGE
-    if (Object.keys(filteredCardsCategoryPE).length === 0) {
-        noResultsMessagePE.innerHTML = `
-            <div class="travolta-container">
-                <img src="./assets/img/no-results.gif" alt="No results found">
-            </div>
-            <h3>We're sorry</h3>
-            <h6>but there are no results for your search "${searchInputPE.value}"</h6>`
-    } else {
-        noResultsMessagePE.innerHTML = '';
-    }
-})
