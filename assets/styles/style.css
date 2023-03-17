@@ -1100,6 +1100,10 @@ footer>p {
         border-radius: 20px;
     }
 
+    .current-date-container p {
+        animation: none;
+    }
+
     .current-date-container p::before {
         content: '';
     }
@@ -1139,5 +1143,9 @@ footer>p {
 
     .details-container .card-footer li i {
         padding-top: 7px;
+    }
+
+    .stats-table-container {
+        padding: 10px 0;
     }
 }
