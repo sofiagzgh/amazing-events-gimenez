@@ -88,13 +88,44 @@ const createCategories = (arrayCat) => {
             `
     });
 
-    categoryContainer.innerHTML = categories
+    categoryContainer.innerHTML = `
+        <label class="d-flex align-items-center">
+            <input type="checkbox" class="custom-checkbox" checked="checked" name="category" value="all" id="all" onclick="checkUncheck(this)">
+            <span><strong>Check all</strong></span>
+        </label>
+        ` + categories
 }
 
 const arrCategories = filterCategories(events);
 createCategories(arrCategories);
 
+function checkUncheck(checkBox) {
+    get = document.getElementsByName('category');
+    allcontainer = document.getElementById('all');
 
+    for (var i = 0; i < get.length; i++) {
+        get[i].checked = checkBox.checked;
+    }
+
+    if (all.checked) {
+        createCardsUE(filterEventsByCategory(arrCategories))
+    } else {
+        ueContainer.innerHTML = ''
+    }
+    
+    // NO RESULTS (CATEGORY) MESSAGE
+    if (ueContainer.innerHTML === '') {
+        noResultsMessageUE.innerHTML = `
+            <div class="travolta-container">
+                <img src="./assets/img/no-results.gif" alt="No results found">
+            </div>
+            <h3>We're sorry</h3>
+            <h6>but there are no results for the selected category/s.</h6>
+        `
+    } else {
+        noResultsMessageUE.innerHTML = '';
+    }
+}
 
 // CATEGORY FILTER
 

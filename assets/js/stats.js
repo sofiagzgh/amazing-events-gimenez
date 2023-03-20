@@ -5,20 +5,24 @@ async function bringData() {
         const response = await fetch(urlApi)
         const data = await response.json();
 
+        // CURRENT DATE
         const currentDateContainer = document.getElementById('current-date-p');
         const currentDateElement = new Date(data.currentDate + "T00:00:00.000-05:00").toDateString();
         currentDateContainer.innerHTML = currentDateElement;
 
+        // TOP 3 TABLE
         let arrPE = filterEvents(data, "past")
         let arrPE0 = filterEventsInfo1(arrPE)
         let PESorted = sortEventsByPercentage(arrPE0)
         createTop3Events(PESorted)
 
+        // UE BY CATEGORIES TABLE
         let arrUE = filterEvents(data, "upcoming")
         let arrUE1 = filterEventsInfo2(arrUE)
         let UEGrouped = groupEventsByCategory(arrUE1)
         createCategoryTable(UEGrouped, "upcoming")
-
+        
+        // PE BY CATEGORIES TABLE
         let arrPE1 = filterEventsInfo2(arrPE)
         let PEGrouped = groupEventsByCategory(arrPE1)
         createCategoryTable(PEGrouped, "past")

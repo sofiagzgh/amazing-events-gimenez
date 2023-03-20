@@ -275,8 +275,8 @@ h2 {
     padding-bottom: 3rem;
     min-width: 90%;
     font-family: var(--main-font-family);
-    -webkit-animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;
-    animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) -0.1s both;
+    -webkit-animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.1s both;
+    animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.1s both;
 }
 
 .cards-container .card:hover {
