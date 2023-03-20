@@ -116,7 +116,7 @@ function checkUncheck(checkBox) {
     } else {
         peContainer.innerHTML = ''
     }
-    
+
     // NO RESULTS (CATEGORY) MESSAGE
     if (peContainer.innerHTML === '') {
         noResultsMessagePE.innerHTML = `
@@ -125,6 +125,9 @@ function checkUncheck(checkBox) {
             </div>
             <h3>We're sorry</h3>
             <h6>but there are no results for the selected category/s.</h6>
+            <a href="javascript:document.getElementById('my-search-ue').focus()">
+                <h6>Try searching by event name!</h6>
+            </a>
         `
     } else {
         noResultsMessagePE.innerHTML = '';
