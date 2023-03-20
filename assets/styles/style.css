@@ -352,6 +352,13 @@ h2 {
     filter: contrast(0.5);
 }
 
+.no-results-message a {
+    text-decoration: none;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
 /* DETAILS */
 #details-body {
     background: repeating-radial-gradient(circle at 0 0, #eee, #ccc 5px);

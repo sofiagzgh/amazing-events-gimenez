@@ -122,6 +122,7 @@ const arrCategories = filterCategories(events);
 createCategories(arrCategories);
 
 function checkUncheck(checkBox) {
+    searchInput.value = ''
     get = document.getElementsByName('category');
     allcontainer = document.getElementById('all');
 
@@ -143,8 +144,8 @@ function checkUncheck(checkBox) {
             </div>
             <h3>We're sorry</h3>
             <h6>but there are no results for the selected category/s.</h6>
-            <a href="javascript:document.getElementById('my-search-ue').focus()">
-                <h6>Try searching by event name!</h6>
+            <a href="javascript:document.getElementById('mySearch').focus()">
+                <p>⇪ Try searching by event name ⇪</p>
             </a>
         `
     } else {
@@ -196,7 +197,10 @@ const arrCategorySelected = (() => {
             </div>
             <h3>We're sorry</h3>
             <h6>but there are no results for the selected category/s.</h6>
-        `
+            <a href="javascript:document.getElementById('mySearch').focus()">
+                <p>⇪ Try searching by event name ⇪</p>
+            </a>
+            `
     } else {
         noResultsMessage.innerHTML = '';
     }
@@ -221,7 +225,11 @@ searchInput.addEventListener("keyup", () => {
                 <img src="./assets/img/no-results.gif" alt="No results found" class="p-0">
             </div>
             <h3>We're sorry</h3>
-            <h6>but there are no results for your search "${searchInput.value}"</h6>`
+            <h6>but there are no results for your search "${searchInput.value}"</h6>
+            <a href="#banner">
+                <p>⇪ Try searching by event category ⇪</p>
+            </a>
+            `
     } else {
         noResultsMessage.innerHTML = '';
     }

@@ -100,6 +100,7 @@ const arrCategories = filterCategories(events);
 createCategories(arrCategories);
 
 function checkUncheck(checkBox) {
+    searchInputUE.value = ''
     get = document.getElementsByName('category');
     allcontainer = document.getElementById('all');
 
@@ -112,7 +113,7 @@ function checkUncheck(checkBox) {
     } else {
         ueContainer.innerHTML = ''
     }
-    
+
     // NO RESULTS (CATEGORY) MESSAGE
     if (ueContainer.innerHTML === '') {
         noResultsMessageUE.innerHTML = `
@@ -122,9 +123,8 @@ function checkUncheck(checkBox) {
             <h3>We're sorry</h3>
             <h6>but there are no results for the selected category/s.</h6>
             <a href="javascript:document.getElementById('my-search-ue').focus()">
-                <h6>Try searching by event name!</h6>
+                <p>⇪ Try searching by event name ⇪</p>
             </a>
-            
         `
     } else {
         noResultsMessageUE.innerHTML = '';
@@ -176,6 +176,9 @@ const arrCategorySelected = (() => {
             </div>
             <h3>We're sorry</h3>
             <h6>but there are no results for the selected category/s.</h6>
+            <a href="javascript:document.getElementById('my-search-ue').focus()">
+                <p>⇪ Try searching by event name ⇪</p>
+            </a>
         `
     } else {
         noResultsMessageUE.innerHTML = '';
@@ -201,7 +204,10 @@ searchInputUE.addEventListener("keyup", () => {
             </div>
             <h3>We're sorry</h3>
             <h6>but there are no results for your search "${searchInputUE.value}"</h6>
-        `
+            <a href="#banner">
+                <p>⇪ Try searching by event category ⇪</p>
+            </a>
+            `
     } else {
         noResultsMessageUE.innerHTML = '';
     }
