@@ -199,6 +199,7 @@ function arrCategorySelected(arrayCategories, arrayEvents, currentDate) {
         if (selection.length != 0 && selection.length != arrayCategories.length) {
             createCardsHome(filteredEvents, currentDate)
             checkBoxAll.checked = false;
+            searchFilter(filteredEvents, currentDate)
         } else if (selection.length == arrayCategories.length) {
             checkBoxAll.checked = true;
         } else {
