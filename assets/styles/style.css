@@ -173,7 +173,7 @@ h2 {
 }
 
 .banner:hover a,
-.banner:hover .details-arrow {
+.banner:hover .details-arrow, #myBtn:hover {
     filter: opacity(1);
     transition: opacity 0.5s ease-in-out;
 }
@@ -533,7 +533,7 @@ h2 {
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
- }
+}
 
 .stats-table-container {
     padding: 10px;
@@ -573,6 +573,24 @@ h2 {
 }
 
 /* Buttons */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    z-index: 99;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border: 2px outset rgb(255, 255, 255);
+    outline: none;
+    color: var(--primary-bg-color);
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    border-radius: 100%;
+    filter: opacity(0.5);
+}
+
 .details-btn,
 .back-btn {
     padding: 0.2em 0.6rem;
@@ -963,6 +981,14 @@ footer>p {
 @media only screen and (max-width: 480px) {
     section {
         padding-bottom: 12rem;
+    }
+
+    #myBtn {
+        bottom: 10px;
+        right: 5px;
+        z-index: 99;
+        width: 35px;
+        height: 35px;
     }
 
     .banner a,

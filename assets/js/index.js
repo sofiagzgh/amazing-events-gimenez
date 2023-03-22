@@ -2,22 +2,24 @@ let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
 async function bringData() {
     try {
-        const response = await fetch(urlApi)
+        const response = await fetch(urlApi);
         const data = await response.json();
 
         const currentDateContainer = document.getElementById('current-date-p');
         const currentDateElement = new Date(data.currentDate + "T00:00:00.000-05:00").toDateString();
         currentDateContainer.innerHTML = currentDateElement;
 
-        createCardsHome(data.events, data.currentDate)
+        createCardsHome(data.events, data.currentDate);
 
         const arrCategoriesUnique = filterCategories(data.events);
         createCategories(arrCategoriesUnique);
 
-        checkUncheck(data.events, data.currentDate)
-        arrCategorySelected(arrCategoriesUnique, data.events, data.currentDate)
+        checkUncheck(data.events, data.currentDate);
+        arrCategorySelected(arrCategoriesUnique, data.events, data.currentDate);
 
-        searchFilter(data.events, data.currentDate)
+        searchFilter(data.events, data.currentDate);
+
+        window.onscroll = function () { scrollFunction() };
     }
     catch (error) {
         console.log(error);
@@ -257,3 +259,20 @@ function searchFilter(arrayEvents, currentDate) {
 
 }
 
+
+
+// SCROLL TO TOP BUTTON
+
+function scrollFunction() {
+    let mybutton = document.getElementById("myBtn");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
