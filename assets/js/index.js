@@ -8,6 +8,16 @@ async function bringData() {
         const currentDateContainer = document.getElementById('current-date-p');
         const currentDateElement = new Date(data.currentDate + "T00:00:00.000-05:00").toDateString();
         currentDateContainer.innerHTML = currentDateElement;
+
+        createCardsHome(data.events, data.currentDate)
+
+        const arrCategoriesUnique = filterCategories(data.events);
+        createCategories(arrCategoriesUnique);
+
+        checkUncheck(data.events, data.currentDate)
+        arrCategorySelected(arrCategoriesUnique, data.events, data.currentDate)
+
+        searchFilter(data.events, data.currentDate)
     }
     catch (error) {
         console.log(error);
@@ -18,13 +28,12 @@ bringData();
 
 // HOME CARDS
 
-const indexContainer = document.getElementById('home-container');
-
-const createCardsHome = (arrayData) => {
+const createCardsHome = (arrayEvents, currentDate) => {
+    const indexContainer = document.getElementById('home-container');
     let cardsUE = '';
     let cardsPE = '';
 
-    arrayData.forEach((event) => {
+    arrayEvents.forEach((event) => {
         if (event.date >= currentDate) {
             cardsUE += `
                 <div class="col">
@@ -78,18 +87,14 @@ const createCardsHome = (arrayData) => {
     indexContainer.innerHTML = cardsUE + cardsPE
 }
 
-createCardsHome(events)
-
 
 
 // CATEGORIES
 
-const categoryContainer = document.getElementById('category-container');
-
-const filterCategories = (arrayData) => {
+const filterCategories = (arrayEvents) => {
     let categoriesUnique = [];
 
-    arrayData.forEach(event => {
+    arrayEvents.forEach(event => {
         if (!categoriesUnique.includes(event.category)) {
             categoriesUnique.push(event.category);
         }
@@ -99,12 +104,13 @@ const filterCategories = (arrayData) => {
 }
 
 const createCategories = (arrayCat) => {
+    const categoryContainer = document.getElementById('category-container');
     let categories = '';
 
     arrayCat.forEach(cat => {
         categories += `
             <label class="d-flex align-items-center">
-                <input type="checkbox" class="custom-checkbox" checked="checked" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
+                <input type="checkbox" class="custom-checkbox categories" checked="checked" name="category" value="${cat}" id="${cat}">
                 <span>${cat}</span>
             </label>
             `
@@ -118,120 +124,135 @@ const createCategories = (arrayCat) => {
         ` + categories
 }
 
-const arrCategories = filterCategories(events);
-createCategories(arrCategories);
+function checkUncheck(arrayEvents, currentDate) {
+    const checkBox = document.getElementById('all');
 
-function checkUncheck(checkBox) {
-    searchInput.value = ''
-    get = document.getElementsByName('category');
-    allcontainer = document.getElementById('all');
+    checkBox.addEventListener("change", () => {
+        const searchInput = document.getElementById('mySearch');
+        const get = document.getElementsByName('category');
+        const indexContainer = document.getElementById('home-container');
+        const noResultsMessage = document.getElementById('no-results-message');
 
-    for (var i = 0; i < get.length; i++) {
-        get[i].checked = checkBox.checked;
-    }
+        searchInput.value = ''
 
-    if (all.checked) {
-        createCardsHome(filterEventsByCategory(arrCategories))
-    } else {
-        indexContainer.innerHTML = ''
-    }
-    
-    // NO RESULTS (CATEGORY) MESSAGE
-    if (indexContainer.innerHTML === '') {
-        noResultsMessage.innerHTML = `
-            <div class="travolta-container">
-                <img src="./assets/img/no-results.gif" alt="No results found">
-            </div>
-            <h3>We're sorry</h3>
-            <h6>but there are no results for the selected category/s.</h6>
-            <a href="javascript:document.getElementById('mySearch').focus()">
-                <p>⇪ Try searching by event name ⇪</p>
-            </a>
-        `
-    } else {
-        noResultsMessage.innerHTML = '';
-    }
+        for (var i = 0; i < get.length; i++) {
+            get[i].checked = checkBox.checked;
+        }
+
+        if (checkBox.checked) {
+            createCardsHome(arrayEvents, currentDate)
+        } else {
+            indexContainer.innerHTML = ''
+        }
+
+        // NO RESULTS (CATEGORY) MESSAGE
+        if (indexContainer.innerHTML === '') {
+            noResultsMessage.innerHTML = `
+                <div class="travolta-container">
+                    <img src="./assets/img/no-results.gif" alt="No results found">
+                </div>
+                <h3>We're sorry</h3>
+                <h6>but there are no results for the selected category/s.</h6>
+                <a href="javascript:document.getElementById('mySearch').focus()">
+                    <p>⇪ Try searching by event name ⇪</p>
+                </a>
+            `
+        } else {
+            noResultsMessage.innerHTML = '';
+        }
+    })
 }
+
+
 
 // CATEGORY FILTER
 
-let ultimateArr = events
+function arrCategorySelected(arrayCategories, arrayEvents, currentDate) {
+    const categoriesContainer = document.getElementById('category-container')
 
-const filterEventsByCategory = (arrayCategories, arrayEvents = events) => {
-    let filteredEvents = []
-    arrayCategories.forEach(categor => {
-        arrayEvents.forEach(event => {
-            if (event.category == categor) {
-                filteredEvents.push(event)
+    categoriesContainer.addEventListener("change", () => {
+        const searchInput = document.getElementById('mySearch');
+        const checkBoxAll = document.getElementById('all');
+        const indexContainer = document.getElementById('home-container');
+        const noResultsMessage = document.getElementById('no-results-message');
+        let selection = []
+
+        searchInput.value = ''
+
+        arrayCategories.forEach(category => {
+            let selector = document.getElementById(category);
+            if (selector.checked) {
+                selection.push(category)
             }
         })
-    })
-    return filteredEvents
-}
 
-const arrCategorySelected = (() => {
-    searchInput.value = ''
-    let selection = []
+        let filteredEvents = []
 
-    arrCategories.forEach(category => {
-        let selector = document.getElementById(category);
-        if (selector.checked) {
-            selection.push(category)
+        selection.forEach(categor => {
+            arrayEvents.forEach(event => {
+                if (event.category == categor) {
+                    filteredEvents.push(event)
+                }
+            })
+        })
+
+        if (selection.length != 0 && selection.length != arrayCategories.length) {
+            createCardsHome(filteredEvents, currentDate)
+            checkBoxAll.checked = false;
+        } else if (selection.length == arrayCategories.length) {
+            checkBoxAll.checked = true;
+        } else {
+            indexContainer.innerHTML = '';
         }
+
+        // NO RESULTS (CATEGORY) MESSAGE
+        if (indexContainer.innerHTML === '') {
+            noResultsMessage.innerHTML = `
+                <div class="travolta-container">
+                    <img src="./assets/img/no-results.gif" alt="No results found">
+                </div>
+                <h3>We're sorry</h3>
+                <h6>but there are no results for the selected category/s.</h6>
+                <a href="#banner" onclick="javascript:document.getElementById('mySearch').focus()">
+                    <p>⇪ Try searching by event name ⇪</p>
+                </a>
+                `
+        } else {
+            noResultsMessage.innerHTML = '';
+        }
+
     })
-
-    if (selection.length != 0) {
-        createCardsHome(filterEventsByCategory(selection))
-    } else {
-        indexContainer.innerHTML = ''
-    }
-
-    let checkedForSearch = filterEventsByCategory(selection)
-    ultimateArr = checkedForSearch.map(event => event)
-
-    // NO RESULTS (CATEGORY) MESSAGE
-    if (indexContainer.innerHTML === '') {
-        noResultsMessage.innerHTML = `
-            <div class="travolta-container">
-                <img src="./assets/img/no-results.gif" alt="No results found">
-            </div>
-            <h3>We're sorry</h3>
-            <h6>but there are no results for the selected category/s.</h6>
-            <a href="javascript:document.getElementById('mySearch').focus()">
-                <p>⇪ Try searching by event name ⇪</p>
-            </a>
-            `
-    } else {
-        noResultsMessage.innerHTML = '';
-    }
-})
+}
 
 
 
 // SEARCH FILTER
 
-const searchInput = document.getElementById('mySearch')
-const noResultsMessage = document.getElementById('no-results-message')
+function searchFilter(arrayEvents, currentDate) {
+    const searchInput = document.getElementById('mySearch')
+    const noResultsMessage = document.getElementById('no-results-message')
 
-searchInput.addEventListener("keyup", () => {
-    let filteredCardsCategory = ultimateArr.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
+    searchInput.addEventListener("keyup", () => {
+        let filteredCardsCategory = arrayEvents.filter((event) => event.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()))
 
-    createCardsHome(filteredCardsCategory)
+        createCardsHome(filteredCardsCategory, currentDate)
 
-    // NO RESULTS MESSAGE
-    if (Object.keys(filteredCardsCategory).length === 0) {
-        noResultsMessage.innerHTML = `
-            <div class="travolta-container">
-                <img src="./assets/img/no-results.gif" alt="No results found" class="p-0">
-            </div>
-            <h3>We're sorry</h3>
-            <h6>but there are no results for your search "${searchInput.value}"</h6>
-            <a href="#banner">
-                <p>⇪ Try searching by event category ⇪</p>
-            </a>
-            `
-    } else {
-        noResultsMessage.innerHTML = '';
-    }
-})
+        // NO RESULTS MESSAGE
+        if (Object.keys(filteredCardsCategory).length === 0) {
+            noResultsMessage.innerHTML = `
+                <div class="travolta-container">
+                    <img src="./assets/img/no-results.gif" alt="No results found" class="p-0">
+                </div>
+                <h3>We're sorry</h3>
+                <h6>but there are no results for your search "${searchInput.value}"</h6>
+                <a href="#banner">
+                    <p>⇪ Try searching by event category ⇪</p>
+                </a>
+                `
+        } else {
+            noResultsMessage.innerHTML = '';
+        }
+    })
+
+}
 

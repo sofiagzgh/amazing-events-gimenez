@@ -516,8 +516,8 @@ h2 {
 }
 
 .stats-container h3 {
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.671);
+    font-weight: 600;
+    color: var(--secondary-color);
     padding-bottom: 1rem;
     margin: 2rem 0rem;
     text-align: center;
@@ -525,7 +525,6 @@ h2 {
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
-    text-shadow: 0 0 10px white;
 }
 
 #top-3-title {
@@ -534,7 +533,6 @@ h2 {
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
-    color: var(--secondary-color);
  }
 
 .stats-table-container {
