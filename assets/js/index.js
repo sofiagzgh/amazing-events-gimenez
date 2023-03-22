@@ -54,7 +54,7 @@ const createCardsHome = (arrayEvents, currentDate) => {
                                 </span>
                                 $${event.price}
                             </p>
-                            <a class="details-btn" href="details.html?id=${event.id}"><span>Details</span></a>
+                            <a class="details-btn" href="details.html?id=${event._id}"><span>Details</span></a>
                         </div>
                     </div>
                 </div>`
