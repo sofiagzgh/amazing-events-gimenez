@@ -18,7 +18,7 @@ async function bringData() {
         checkUncheck(data.events, data.currentDate);
         arrCategorySelected(arrCategoriesUnique, data.events, data.currentDate);
 
-        searchFilter(data.events, data.currentDate);
+        searchFilter(arrPE, data.currentDate);
 
         window.onscroll = function () { scrollFunction() };
     }
