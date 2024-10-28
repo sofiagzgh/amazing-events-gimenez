@@ -1152,7 +1152,7 @@ footer>p {
     }
 
     .search-bar {
-        padding: 1rem 3rem;
+        padding: 1rem 0.5rem;
         justify-content: space-evenly;
     }
 
@@ -1178,5 +1178,15 @@ footer>p {
 
     .stats-table-container {
         padding: 10px 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    html,
+    body {
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: hidden;
     }
 }

@@ -1,4 +1,4 @@
-let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+let urlApi = "https://api.jsonsilo.com/public/ec96b4d5-118c-413b-99f7-6fb108ad4b60"
 
 async function bringData() {
     try {
